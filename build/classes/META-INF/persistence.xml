@@ -4,9 +4,14 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="heavenhospital-unit"
 		transaction-type="RESOURCE_LOCAL">
-		
 		<!-- Inserisco le classi che vorrei sincronizzare nel DBMS con l'Entity Manager -->
-		
+		<class>it.heavenhospital.model.Amministratore</class> 
+		<class>it.heavenhospital.model.Medico</class> 
+		<class>it.heavenhospital.model.Paziente</class> 
+		<class>it.heavenhospital.model.Esame</class> 
+		<class>it.heavenhospital.model.TipologiaEsame</class> 
+		<class>it.heavenhospital.model.Indicatore</class> 
+		<class>it.heavenhospital.model.Prerequisito</class> 
 		<properties>
 			<!-- Qui sono inserite le proprietà necessarie per la stabilire la connessione 
 				con il DBMS -->

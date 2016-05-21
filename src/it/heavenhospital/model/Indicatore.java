@@ -1,0 +1,58 @@
+package it.heavenhospital.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Indicatore {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	@Column(unique=true,nullable=false)
+	private String nome;
+	
+	public Indicatore() {}
+	
+	public Indicatore(String nome){
+		this.nome = nome;
+	}
+	
+	//metodi getters e setters
+	public Long getId() {
+		return id;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	//metodi equals e hashcode
+	
+	@Override
+	public boolean equals(Object obj) {
+		Indicatore ind = (Indicatore) obj;
+		return ind.getNome().equals(this.getNome());
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.getNome().hashCode();
+	}
+	
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("Indicatore"); 
+		sb.append("{id='").append(id); 
+		sb.append(", nome='").append(nome);
+		sb.append("}\n");
+		return sb.toString();
+	}
+}
