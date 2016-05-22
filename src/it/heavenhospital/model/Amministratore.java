@@ -85,12 +85,11 @@ public class Amministratore {
 	@Override
 	public boolean equals(Object obj) {
 		Amministratore adm = (Amministratore) obj;
-		return adm.getEmail().equals(this.getEmail()) &&
-			   adm.getPassword().equals(this.getPassword());
+		return adm.getEmail().equals(this.getEmail());
 	}
 	
 	@Override
 	public int hashCode() {
-		return this.getEmail().hashCode() + this.getPassword().hashCode();
+		return this.getEmail().hashCode();
 	}
 }
