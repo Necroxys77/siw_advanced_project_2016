@@ -2,8 +2,13 @@
     <wb-module deploy-name="siw_advanced_project_2016">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
+>>>>>>> origin/master
         <property name="context-root" value="siw_advanced_project_2016"/>
         <property name="java-output-path" value="/siw_advanced_project_2016/build/classes"/>
     </wb-module>
