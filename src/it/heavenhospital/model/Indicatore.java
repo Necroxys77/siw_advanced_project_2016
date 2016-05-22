@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name="allIndicatori",query="SELECT i FROM Indicatore i")
 public class Indicatore {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

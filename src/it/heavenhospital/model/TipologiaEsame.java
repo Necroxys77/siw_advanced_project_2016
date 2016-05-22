@@ -4,8 +4,10 @@ package it.heavenhospital.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,11 +27,11 @@ public class TipologiaEsame {
 	private String nome;
 	@Column(length=2000)
 	private String descrizione;
-	@ManyToMany
+	@ManyToMany(cascade={CascadeType.PERSIST})
 	@JoinTable(name="tipologiaesame_indicatore", joinColumns=@JoinColumn(name="tipologiaesame_id"), inverseJoinColumns=@JoinColumn(name="indicatore_id"))  
 	//metto un Set perché voglio essere sicuro che non esistono doppi indicatori E in modo tale da creare una chiave composita nel database
 	private Set<Indicatore> indicatori;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER,cascade={CascadeType.PERSIST})
 	@JoinTable(name="tipologiaesame_prerequisito", joinColumns=@JoinColumn(name="tipologiaesame_prerequisito"), inverseJoinColumns=@JoinColumn(name="prerequisito_nome"))
 	private Set<Prerequisito> prerequisiti;
 	

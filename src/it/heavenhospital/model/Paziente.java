@@ -2,14 +2,19 @@ package it.heavenhospital.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
+@NamedQuery(name="allPazienti", query="SELECT p FROM Paziente p")
 public class Paziente{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,7 +27,8 @@ public class Paziente{
 	private String cognome;
 	@Column(unique=true,nullable=false)
 	private String email;
-	@OneToMany(mappedBy="paziente")
+	@OneToMany(mappedBy="paziente",cascade={CascadeType.REMOVE})
+	@OrderBy("dataDiEsecuzione ASC")
 	private List<Esame> esami; //inserire una mappa? Intanto facciamo un progetto che sia funzionale, poi vedremo. Può essere che la ricerca la fa direttamente il database
 
 	public Paziente(){

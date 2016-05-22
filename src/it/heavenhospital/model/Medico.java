@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -29,6 +30,7 @@ public class Medico {
 	@Column(nullable=false)
 	private String specializzazione;
 	@OneToMany(mappedBy="medico")
+	@OrderBy("dataDiEsecuzione ASC")
 	private List<Esame> esami;
 
 	public Medico(){

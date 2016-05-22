@@ -3,8 +3,10 @@ package it.heavenhospital.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name="allPrerequisiti",query="SELECT p FROM Prerequisito p")
 public class Prerequisito {
 	//@Id  --> Potrebbe non servire un id, uso direttamente il nome
 	//@GeneratedValue(strategy=GenerationType.AUTO)
