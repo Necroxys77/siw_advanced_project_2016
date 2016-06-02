@@ -94,13 +94,6 @@
 			</h:form>
 			<br>
 			<br>
-			<div>
-				<a href='<c:url value="/faces/newTipologiaEsame.jsp" />'>Continua
-					ad inserire nuove <i>Tipologie Esami</i>
-				</a>. <br> <a href='<c:url value="/faces/admin-home.jsp" />'>Concludi
-					inserimento <i>Tipologie Esami</i>
-				</a>.
-			</div>
 		</f:view>
 
 
