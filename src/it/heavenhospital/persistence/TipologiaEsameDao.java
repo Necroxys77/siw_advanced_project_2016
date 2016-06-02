@@ -11,4 +11,5 @@ public interface TipologiaEsameDao {
 	public void update(TipologiaEsame tipologiaEsame); //Update
 	public List<TipologiaEsame> findAll(); 
 	public TipologiaEsame findByPrimaryKey(Long id); //Retrieve
+	public TipologiaEsame findByNome(String nome);
 }

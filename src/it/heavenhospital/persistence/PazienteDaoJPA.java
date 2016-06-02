@@ -3,40 +3,36 @@ package it.heavenhospital.persistence;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import it.heavenhospital.model.Paziente;
 
 public class PazienteDaoJPA implements PazienteDao {
 	private EntityManager em;
-	private EntityTransaction tx;
-	
+
 	public PazienteDaoJPA(EntityManager em) {
 		this.em = em;
 	}
-	
+
+	//ci pensa il contenitore a gestire le connessioni
 	@Override
 	public void save(Paziente paziente) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.persist(paziente);
-		tx.commit();
 	}
 
 	@Override
 	public void delete(Paziente paziente) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.remove(paziente);
-		tx.commit();
+	}
+	
+	public void delete(Long id){
+		Paziente paziente = em.find(Paziente.class, id);
+		this.delete(paziente);
 	}
 
 	@Override
 	public void update(Paziente paziente) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.merge(paziente);
-		tx.commit();
 	}
 
 	@Override
@@ -50,4 +46,10 @@ public class PazienteDaoJPA implements PazienteDao {
 		return em.find(Paziente.class, id);
 	}
 
+	@Override
+	public Paziente findByEmail(String email) {
+		Query query = em.createQuery("SELECT p FROM Paziente p WHERE p.email=?");
+		return (Paziente)query.setParameter(1, email).getSingleResult();
+	}
 }
+

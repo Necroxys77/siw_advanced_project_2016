@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="siw_advanced_project_2016">
+    <wb-module deploy-name="siw-jee-es2">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
-=======
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
->>>>>>> origin/master
-        <property name="context-root" value="siw_advanced_project_2016"/>
-        <property name="java-output-path" value="/siw_advanced_project_2016/build/classes"/>
+        <property name="context-root" value="siw-jee-es2"/>
+        <property name="java-output-path" value="/siw-jee-es2/build/classes"/>
     </wb-module>
 </project-modules>

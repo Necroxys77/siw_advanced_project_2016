@@ -11,4 +11,5 @@ public interface AmministratoreDao {
 	public void update(Amministratore amministratore); //Update
 	public List<Amministratore> findAll(); 
 	public Amministratore findByPrimaryKey(Long id); //Retrieve
+	public Amministratore findByEmail(String email); //Retrieve by email
 }

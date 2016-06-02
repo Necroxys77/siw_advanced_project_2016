@@ -23,7 +23,7 @@ public class TipologiaEsame {
 	//@Column(unique=true)
 	//private String codice;
 	private Integer costo;
-	@Column(nullable=false)
+	@Column(nullable=false,unique=true)
 	private String nome;
 	@Column(length=2000)
 	private String descrizione;
@@ -40,9 +40,21 @@ public class TipologiaEsame {
 		this.prerequisiti = new HashSet<>();
 	}
 	
+	public TipologiaEsame(String nome, String descrizione, Integer costo){
+		this.nome = nome;
+		this.costo = costo;
+		this.descrizione = descrizione;
+		this.indicatori = new HashSet<>();
+		this.prerequisiti = new HashSet<>();
+	}
+	
 	//metodi setter e getter
 	public Long getId() {
 		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	public Set<Indicatore> getIndicatori() {

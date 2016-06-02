@@ -1,11 +1,13 @@
 package it.heavenhospital.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import it.heavenhospital.model.Esame;
+import it.heavenhospital.model.Indicatore;
 
 public class EsameDaoJPA implements EsameDao {
 	private EntityManager em;
@@ -50,4 +52,10 @@ public class EsameDaoJPA implements EsameDao {
 		return em.find(Esame.class, id);
 	}
 
+	@Override
+	public Map<Indicatore, String> findRisultatiEsame(Long id) {
+		Esame esame = this.findByPrimaryKey(id);
+		return esame.getRisultati();
+	}
 }
+	

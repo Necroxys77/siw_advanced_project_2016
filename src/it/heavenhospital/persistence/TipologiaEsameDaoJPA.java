@@ -3,13 +3,12 @@ package it.heavenhospital.persistence;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import it.heavenhospital.model.TipologiaEsame;
 
 public class TipologiaEsameDaoJPA implements TipologiaEsameDao {
 	private EntityManager em;
-	private EntityTransaction tx;
 	
 	public TipologiaEsameDaoJPA(EntityManager em) {
 		this.em = em;
@@ -17,26 +16,17 @@ public class TipologiaEsameDaoJPA implements TipologiaEsameDao {
 	
 	@Override
 	public void save(TipologiaEsame tipologiaEsame) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.persist(tipologiaEsame);
-		tx.commit();
 	}
 
 	@Override
 	public void delete(TipologiaEsame tipologiaEsame) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.remove(tipologiaEsame);
-		tx.commit();
 	}
 
 	@Override
 	public void update(TipologiaEsame tipologiaEsame) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.merge(tipologiaEsame);
-		tx.commit();
 	}
 
 	@Override
@@ -49,5 +39,11 @@ public class TipologiaEsameDaoJPA implements TipologiaEsameDao {
 	public TipologiaEsame findByPrimaryKey(Long id) {
 		return em.find(TipologiaEsame.class, id);
 	}
-
+	
+	@Override
+	public TipologiaEsame findByNome(String nome) {
+		Query query = em.createQuery("SELECT t FROM TipologiaEsame t WHERE t.nome=?");
+		query.setParameter(1, nome);
+		return (TipologiaEsame) query.getSingleResult();
+ 	}
 }

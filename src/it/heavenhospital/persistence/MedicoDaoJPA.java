@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import it.heavenhospital.model.Medico;
 
@@ -50,4 +51,11 @@ public class MedicoDaoJPA implements MedicoDao {
 		return em.find(Medico.class, id);
 	}
 
+	@Override
+	public Medico findByNomeCognome(String nome, String cognome) {
+		Query query = em.createQuery("SELECT m FROM Medico m WHERE m.nome=? AND m.cognome=?");
+		query.setParameter(1, nome);
+		query.setParameter(2, cognome);
+		return (Medico) query.getSingleResult();
+ 	}
 }

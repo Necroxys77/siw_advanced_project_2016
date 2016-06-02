@@ -11,4 +11,5 @@ public interface PazienteDao {
 	public void update(Paziente paziente); //Update
 	public List<Paziente> findAll(); 
 	public Paziente findByPrimaryKey(Long id); //Retrieve
+	public Paziente findByEmail(String email); //Retrieve by email
 }

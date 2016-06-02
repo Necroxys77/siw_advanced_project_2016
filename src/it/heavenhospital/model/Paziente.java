@@ -19,7 +19,8 @@ public class Paziente{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	@Column(nullable=false)
+	@Column(nullable=false, name="password")
+	//@ColumnTransformer( write="EncryptByPassPhrase('12',?)", read="DECRYPTBYPASSPHRASE ('12',password)" )
 	private String password;
 	@Column(nullable=false)
 	private String nome;

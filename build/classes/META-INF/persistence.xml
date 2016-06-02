@@ -2,51 +2,21 @@
 <persistence version="2.0"
 	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="heavenhospital-unit"
-		transaction-type="RESOURCE_LOCAL">
-		<!-- Inserisco le classi che vorrei sincronizzare nel DBMS con l'Entity 
-			Manager -->
+	<persistence-unit name="heavenhospital-unit" transaction-type="JTA">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<jta-data-source>PostgreSQL Database</jta-data-source>
+ 	<!--  	<non-jta-data-source>PostgreSQL Database</non-jta-data-source> -->
+		<class>it.heavenhospital.model.Product</class>
+		<class>it.heavenhospital.model.Paziente</class>
 		<class>it.heavenhospital.model.Amministratore</class>
 		<class>it.heavenhospital.model.Medico</class>
-		<class>it.heavenhospital.model.Paziente</class>
 		<class>it.heavenhospital.model.Esame</class>
 		<class>it.heavenhospital.model.TipologiaEsame</class>
 		<class>it.heavenhospital.model.Indicatore</class>
 		<class>it.heavenhospital.model.Prerequisito</class>
 		<properties>
-			<!-- Qui sono inserite le proprietà necessarie per la stabilire la connessione 
-				con il DBMS -->
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="postgres" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/heaven_hospital" />
-
-			<!-- Hibernate properties -->
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
-		</properties>
-	</persistence-unit>
-	
-	<!-- persistence unit usata per i test -->
-	<persistence-unit name="heavenhospital-unit-test"
-		transaction-type="RESOURCE_LOCAL">
-		
-		<class></class>
-		<properties>
-			<!-- Qui sono inserite le proprietà necessarie per la stabilire la connessione 
-				con il DBMS -->
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="postgres" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/heaven_hospital" />
-
-			<!-- Hibernate properties -->
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
 		</properties>
 	</persistence-unit>
 </persistence>
+          

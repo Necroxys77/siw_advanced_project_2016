@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import it.heavenhospital.model.Amministratore;
 
@@ -52,5 +53,10 @@ public class AmministratoreDaoJPA implements AmministratoreDao {
 	public Amministratore findByPrimaryKey(Long id) {
 		return em.find(Amministratore.class, id);
 	}
-
+	
+	@Override
+	public Amministratore findByEmail(String email){
+		Query query = em.createQuery("SELECT a FROM Amministratore a WHERE a.email=?");
+		return (Amministratore)query.setParameter(1,email).getSingleResult();
+	}
 }

@@ -12,4 +12,5 @@ public interface MedicoDao {
 	public void update(Medico medico); //Update
 	public List<Medico> findAll(); 
 	public Medico findByPrimaryKey(Long id); //Retrieve
+	public Medico findByNomeCognome(String nome, String cognome); //Retrieve from name and surname
 }
