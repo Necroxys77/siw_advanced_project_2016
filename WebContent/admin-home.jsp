@@ -93,7 +93,7 @@
 		<!-- Secondo gruppo di colonne -->
 		<f:view>
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-4">
 				<h2>Consulta Tipologie Esame</h2>
 				<p>Consulta l'elenco delle Tipologie Offerte dalla clinica Heaven Hospital.</p>
 				<p>
@@ -104,10 +104,18 @@
 				</p>
 			</div>
 			<div class="col-md-4">
+				<h2>Inserimento nuovo Amministratore</h2>
+				<p>Inserisci nuovo Amministratore della clinica Heaven Hospital.</p>
+				<p>
+					<a class="btn btn-default" href='<c:url value="/faces/newAmministratore.jsp" />' role="button">Inserisci nuovo Amministratore
+						&raquo;</a>
+				</p>
+			</div>
+			<div class="col-md-4">
 				<h2>Inserimento nuovo Paziente</h2>
 				<p>Inserisci un nuovo Paziente nella clinica Heaven Hospital.</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">View details
+					<a class="btn btn-default" href='<c:url value="/faces/newPaziente.jsp" />' role="button">Inserisci nuovo Paziente
 						&raquo;</a>
 				</p>
 			</div>

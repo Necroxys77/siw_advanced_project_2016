@@ -5,8 +5,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaQuery;
 
+import it.heavenhospital.persistence.AmministratoreDaoJPA;
 import it.heavenhospital.persistence.TipologiaEsameDaoJPA;
 
 @Stateless
@@ -38,5 +38,11 @@ public class AmministratoreFacade {
 		return tipologie;
 	}
 	
-
+	//metodi inerenti alla gestione dell'amministratore
+	public Amministratore createAmministratore(String nome, String cognome, String email, String password){
+		AmministratoreDaoJPA amministratoreDao = new AmministratoreDaoJPA(em);
+		Amministratore amministratore =new Amministratore(email, password, nome, cognome);
+		amministratoreDao.save(amministratore);
+		return amministratore;
+	}
 }

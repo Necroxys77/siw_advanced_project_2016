@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Inserimento Paziente</title>
+<title>Inserimento Amministratore</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
 		<div class="container">
-		<h1>Inserimento nuovo Paziente</h1>
+		<h1>Inserimento nuovo Amministratore</h1>
 		<br>
 		<hr>
 		<br>
@@ -70,14 +70,14 @@
 		<f:view>
 		<h:form>
 			<fieldset class="form-group">
-				<label for="nome">Nome: </label> <h:inputText value="#{pazienteController.nome}" 
+				<label for="nome">Nome: </label> <h:inputText value="#{amministratoreController.nome}" 
                     								 styleClass="form-control"
                     								 required="true"
                    									requiredMessage="Il nome e' obbligatorio!"
                      								id="nome"/> <h:message for="nome" />
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="cognome">Cognome: </label> <h:inputText value="#{pazienteController.cognome}" 
+				<label for="cognome">Cognome: </label> <h:inputText value="#{amministratoreController.cognome}" 
                     								 	styleClass="form-control"
                     								 	required="true"
              											requiredMessage="Il cognome e' obbligatorio!"
@@ -85,14 +85,14 @@
                      									<h:message for="cognome" />
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="email">Email: </label> <h:inputText value="#{pazienteController.email}" 
+				<label for="email">Email: </label> <h:inputText value="#{amministratoreController.email}" 
                     								 styleClass="form-control"
                     								 required="true"
                    									requiredMessage="L'email e' obbligatoria!"
                      								id="email"/> <h:message for="email" />
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="password">Password: </label> <h:inputSecret value="#{pazienteController.password}" 
+				<label for="password">Password: </label> <h:inputSecret value="#{amministratoreController.password}" 
                     								 styleClass="form-control"
                     								 required="true"
                    									requiredMessage="La password e' obbligatoria!"
@@ -100,10 +100,10 @@
 			</fieldset>
 			
 			<div>
-				<h:commandButton value="Inserisci"  action="#{pazienteController.createPaziente}"/>
+				<h:commandButton value="Inserisci"  action="#{amministratoreController.createAmministratore}"/>
 			</div>
 			<br> 
-			<div> Non vuoi inserire un nuovo <i>Paziente</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
+			<div> Non vuoi inserire un nuovo <i>Amministratore</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
 			</div>
 			
 		</h:form>

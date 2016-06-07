@@ -3,15 +3,12 @@ package it.heavenhospital.persistence;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import it.heavenhospital.model.Amministratore;
 
 public class AmministratoreDaoJPA implements AmministratoreDao {
 	public EntityManager em;
-	//apro una transazione in ogni metodo Dao che prevede una modifica nella base di dati
-	public EntityTransaction tx;
 	
 	//passo l'EntityManager al construttore della classe in modo tale che sia sempre lo stesso
 	public AmministratoreDaoJPA(EntityManager em) {
@@ -21,26 +18,17 @@ public class AmministratoreDaoJPA implements AmministratoreDao {
 	
 	@Override
 	public void save(Amministratore amministratore) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.persist(amministratore);
-		tx.commit();
 	}
 
 	@Override
 	public void delete(Amministratore amministratore) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.remove(amministratore);
-		tx.commit();
 	}
 
 	@Override
 	public void update(Amministratore amministratore) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.merge(amministratore);
-		tx.commit();
 	}
 
 	@Override

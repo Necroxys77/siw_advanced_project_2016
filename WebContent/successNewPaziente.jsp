@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Inserimento Paziente</title>
+<title>Riepilogo Paziente</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -38,9 +38,11 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a  class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a
-					class="navbar-brand" href='<c:url value="/faces/admin-home.jsp" />'>Sezione Amministratore</a> <a
-					class="navbar-brand" href="#">Sezione Paziente</a> 
+				<a class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a>
+				<a class="navbar-brand"
+					href='<c:url value="/faces/admin-home.jsp" />'>Sezione
+					Amministratore</a> <a class="navbar-brand" href="#">Sezione
+					Paziente</a> 
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right">
@@ -59,54 +61,38 @@
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
-		<div class="container">
-		<h1>Inserimento nuovo Paziente</h1>
-		<br>
-		<hr>
-		<br>
-	
-	
-		<!--  Inizio campi per la tipologia -->
+	<div class="container">
+
+
 		<f:view>
-		<h:form>
-			<fieldset class="form-group">
-				<label for="nome">Nome: </label> <h:inputText value="#{pazienteController.nome}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="Il nome e' obbligatorio!"
-                     								id="nome"/> <h:message for="nome" />
-			</fieldset>
-			<fieldset class="form-group">
-				<label for="cognome">Cognome: </label> <h:inputText value="#{pazienteController.cognome}" 
-                    								 	styleClass="form-control"
-                    								 	required="true"
-             											requiredMessage="Il cognome e' obbligatorio!"
-                     									id="cognome"/> 
-                     									<h:message for="cognome" />
-			</fieldset>
-			<fieldset class="form-group">
-				<label for="email">Email: </label> <h:inputText value="#{pazienteController.email}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="L'email e' obbligatoria!"
-                     								id="email"/> <h:message for="email" />
-			</fieldset>
-			<fieldset class="form-group">
-				<label for="password">Password: </label> <h:inputSecret value="#{pazienteController.password}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="La password e' obbligatoria!"
-                     								id="password"/> <h:message for="password" />
-			</fieldset>
-			
-			<div>
-				<h:commandButton value="Inserisci"  action="#{pazienteController.createPaziente}"/>
-			</div>
-			<br> 
-			<div> Non vuoi inserire un nuovo <i>Paziente</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
-			</div>
-			
-		</h:form>
+			<h1>Inserimento nuovo Paziente effettuato con successo!</h1>
+			<br>
+			<hr>
+			<br>
+			<h2>Dettagli</h2>
+			<br>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Cognome</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="success">
+						<td>${pazienteController.paziente.id}</td>
+						<td>${pazienteController.paziente.nome}</td>
+						<td>${pazienteController.paziente.cognome}</td>
+						<td>${pazienteController.paziente.email}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br>
+			<br>
 		</f:view>
 
 

@@ -3,6 +3,7 @@ package it.heavenhospital.controller;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
@@ -26,8 +27,14 @@ public class PazienteController {
 	
 	//i metodi del controller hanno come risultato il nome della prossima pagina da visualizzare
 	public String createPaziente(){
-		this.paziente = pazienteFacade.createPaziente(nome, cognome, email, password);
-		return "paziente";
+		String nextPage = "successNewPaziente";
+		try{
+			this.paziente = pazienteFacade.createPaziente(nome, cognome, email, password);
+		} catch (EJBTransactionRolledbackException e){ // catturo l'eccezione sollevata in cui il DBMS ha già un paziente con la stessa email
+			nextPage = "errorNewPaziente";
+			this.paziente = new Paziente(email, password, nome, cognome); //creo ugualmente il paziente in modo tale da richiamarne i dati nella pagina di errore
+		}
+		return nextPage;
 	}
 	
 	public String listPazienti(){

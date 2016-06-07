@@ -6,7 +6,7 @@
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<jta-data-source>PostgreSQL Database</jta-data-source>
  	<!--  	<non-jta-data-source>PostgreSQL Database</non-jta-data-source> -->
-		<class>it.heavenhospital.model.Product</class>
+		
 		<class>it.heavenhospital.model.Paziente</class>
 		<class>it.heavenhospital.model.Amministratore</class>
 		<class>it.heavenhospital.model.Medico</class>
