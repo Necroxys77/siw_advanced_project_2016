@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Homepage Amministratore</title>
+<title>Riepilogo Medico</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -38,9 +38,11 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a	class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a 
-					class="navbar-brand" href="#">Sezione Amministratore</a> <a
-					class="navbar-brand" href="#">Sezione Paziente</a> 
+				<a class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a>
+				<a class="navbar-brand"
+					href='<c:url value="/faces/admin-home.jsp" />'>Sezione
+					Amministratore</a> <a class="navbar-brand" href="#">Sezione
+					Paziente</a> 
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right">
@@ -60,84 +62,44 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
 	<div class="container">
-		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Inserimento nuova Tipologia Esame</h2>
-				<p>Inserisci una nuova Tipologia Esame nell'offerta della clinica Heaven Hospital.
-					<u>Attenzione: non potranno essere inserite Tipologie Esame che condividono lo stesso nome</u>.
-					Consulta prima l'elenco delle Tipologie Esame offerte per evitare incovenienti. </p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newTipologiaEsame.jsp" />' role="button">Inserisci nuova Tipologia
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Esame</h2>
-				<p>Inserisci un nuovo Esame per un paziente della clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Inserimento Risultati Esame</h2>
-				<p>Inserisci i Risultati di un esame di un paziente della clinica Heaven Hospital</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-		</div>
-		<hr>
-		<!-- Secondo gruppo di colonne -->
+
+
 		<f:view>
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Consulta Tipologie Esame</h2>
-				<p>Consulta l'elenco delle Tipologie Offerte dalla clinica Heaven Hospital.</p>
-				<p>
-					<h:form>
-						<h:commandButton action="#{tipologiaEsameController.listTipologieEsame}" 
-							value="Elenco Tipologie Esame" type="submit"/>
-					</h:form>
-				</p>
+	
+			<h1>Impossibile inserire il nuovo Medico.</h1>
+			<br>
+			<h2>Medico gia' presente.</h2>
+			<hr>
+			<br>
+			
+			<h:form>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Cognome</th>
+						<th>Specializzazione</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="danger"> <!-- Volevo inserire una ricerca per nome per trovare il dettaglio dell'esame con lo stesso nome, ma non va -->
+						<td><span style="text-decoration: line-through;">${medicoController.medico.nome}</span></td>
+						<td><span style="text-decoration: line-through;">${medicoController.medico.cognome}</span></td>
+						<td>${medicoController.medico.specializzazione}</td>
+					</tr>
+				</tbody>
+			</table>
+			</h:form>
+			
+			<br>
+			<br>
+			<div>
+				<a href='<c:url value="/faces/newMedico.jsp" />'>Torna
+					ad inserire il nuovo <i>Medico</i>
+				</a>.
 			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Amministratore</h2>
-				<p>Inserisci un nuovo Amministratore della clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newAmministratore.jsp" />' role="button">Inserisci nuovo Amministratore
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Paziente</h2>
-				<p>Inserisci un nuovo Paziente nella clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newPaziente.jsp" />' role="button">Inserisci nuovo Paziente
-						&raquo;</a>
-				</p>
-			</div>
-		</div>		
 		</f:view>
-		<hr>
-		<!-- Terzo gruppo di colonne -->
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Medico</h2>
-				<p>Inserisci un nuovo Medico nella clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newMedico.jsp" />' role="button">Inserisci nuovo Medico
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-			</div>
-			<div class="col-md-4">
-			</div>
-		</div>		
-		
+
 
 		<hr>
 

@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Homepage Amministratore</title>
+<title>Inserimento Medico</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -38,8 +38,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a	class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a 
-					class="navbar-brand" href="#">Sezione Amministratore</a> <a
+				<a  class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a
+					class="navbar-brand" href='<c:url value="/faces/admin-home.jsp" />'>Sezione Amministratore</a> <a
 					class="navbar-brand" href="#">Sezione Paziente</a> 
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
@@ -59,85 +59,56 @@
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
-	<div class="container">
-		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Inserimento nuova Tipologia Esame</h2>
-				<p>Inserisci una nuova Tipologia Esame nell'offerta della clinica Heaven Hospital.
-					<u>Attenzione: non potranno essere inserite Tipologie Esame che condividono lo stesso nome</u>.
-					Consulta prima l'elenco delle Tipologie Esame offerte per evitare incovenienti. </p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newTipologiaEsame.jsp" />' role="button">Inserisci nuova Tipologia
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Esame</h2>
-				<p>Inserisci un nuovo Esame per un paziente della clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Inserimento Risultati Esame</h2>
-				<p>Inserisci i Risultati di un esame di un paziente della clinica Heaven Hospital</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-		</div>
+		<div class="container">
+		<h1>Inserimento nuovo Medico</h1>
+		<br>
 		<hr>
-		<!-- Secondo gruppo di colonne -->
+		<br>
+	
+	
+		<!--  Inizio campi per la tipologia -->
 		<f:view>
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Consulta Tipologie Esame</h2>
-				<p>Consulta l'elenco delle Tipologie Offerte dalla clinica Heaven Hospital.</p>
-				<p>
-					<h:form>
-						<h:commandButton action="#{tipologiaEsameController.listTipologieEsame}" 
-							value="Elenco Tipologie Esame" type="submit"/>
-					</h:form>
-				</p>
+		<h:form>
+			<fieldset class="form-group">
+				<label for="nome">Nome: </label> <h:inputText value="#{medicoController.nome}" 
+                    								 styleClass="form-control"
+                    								 required="true"
+                   									requiredMessage="Il nome e' obbligatorio!"
+                     								id="nome"/> <h:message for="nome" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="cognome">Cognome: </label> <h:inputText value="#{medicoController.cognome}" 
+                    								 	styleClass="form-control"
+                    								 	required="true"
+             											requiredMessage="Il cognome e' obbligatorio!"
+                     									id="cognome"/> 
+                     									<h:message for="cognome" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="email">Specializzazione: </label> <h:inputText value="#{medicoController.specializzazione}" 
+                    								 styleClass="form-control"
+                    								 required="true"
+                   									requiredMessage="La specializzazione e' obbligatoria!"
+                     								id="specializzazione"/> <h:message for="specializzione" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="password">Password: </label> <h:inputSecret value="#{medicoController.password}" 
+                    								 styleClass="form-control"
+                    								 required="true"
+                   									requiredMessage="La password e' obbligatoria!"
+                     								id="password"/> <h:message for="password" />
+			</fieldset>
+			
+			<div>
+				<h:commandButton value="Inserisci"  action="#{medicoController.createMedico}"/>
 			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Amministratore</h2>
-				<p>Inserisci un nuovo Amministratore della clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newAmministratore.jsp" />' role="button">Inserisci nuovo Amministratore
-						&raquo;</a>
-				</p>
+			<br> 
+			<div> Non vuoi inserire un nuovo <i>Medico</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
 			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Paziente</h2>
-				<p>Inserisci un nuovo Paziente nella clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newPaziente.jsp" />' role="button">Inserisci nuovo Paziente
-						&raquo;</a>
-				</p>
-			</div>
-		</div>		
+			
+		</h:form>
 		</f:view>
-		<hr>
-		<!-- Terzo gruppo di colonne -->
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Medico</h2>
-				<p>Inserisci un nuovo Medico nella clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newMedico.jsp" />' role="button">Inserisci nuovo Medico
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-			</div>
-			<div class="col-md-4">
-			</div>
-		</div>		
-		
+
 
 		<hr>
 

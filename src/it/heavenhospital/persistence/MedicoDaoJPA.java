@@ -10,7 +10,6 @@ import it.heavenhospital.model.Medico;
 
 public class MedicoDaoJPA implements MedicoDao {
 	private EntityManager em;
-	private EntityTransaction tx;
 
 	public MedicoDaoJPA(EntityManager em) {
 		this.em = em;
@@ -18,26 +17,17 @@ public class MedicoDaoJPA implements MedicoDao {
 
 	@Override
 	public void save(Medico medico) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.persist(medico);
-		tx.commit();
 	}
 
 	@Override
 	public void delete(Medico medico) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.remove(medico);
-		tx.commit();
 	}
 
 	@Override
 	public void update(Medico medico) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.merge(medico);
-		tx.begin();
 	}
 
 	@Override

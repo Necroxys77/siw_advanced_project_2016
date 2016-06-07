@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import it.heavenhospital.persistence.AmministratoreDaoJPA;
+import it.heavenhospital.persistence.MedicoDaoJPA;
 import it.heavenhospital.persistence.TipologiaEsameDaoJPA;
 
 @Stateless
@@ -39,10 +40,20 @@ public class AmministratoreFacade {
 	}
 	
 	//metodi inerenti alla gestione dell'amministratore
+
 	public Amministratore createAmministratore(String nome, String cognome, String email, String password){
 		AmministratoreDaoJPA amministratoreDao = new AmministratoreDaoJPA(em);
 		Amministratore amministratore =new Amministratore(email, password, nome, cognome);
 		amministratoreDao.save(amministratore);
 		return amministratore;
+	}
+	
+	//metodi inerenti alla gestione del medico
+	
+	public Medico createMedico(String nome, String cognome, String specializzazione, String password){
+		MedicoDaoJPA medicoDao = new MedicoDaoJPA(em);
+		Medico medico = new Medico(password, nome, cognome, specializzazione);
+		medicoDao.save(medico);
+		return medico;
 	}
 }
