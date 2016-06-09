@@ -76,7 +76,7 @@
 				<h2>Inserimento nuovo Esame</h2>
 				<p>Inserisci un nuovo Esame per un paziente della clinica Heaven Hospital.</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">View details
+					<a class="btn btn-default" href='<c:url value="/faces/newEsame.jsp" />' role="button">Inserisci nuovo Esame
 						&raquo;</a>
 				</p>
 			</div>
@@ -133,8 +133,20 @@
 				</p>
 			</div>
 			<div class="col-md-4">
+				<h2>Inserimento nuovo Indicatore</h2>
+				<p>Inserisci un nuovo Indicatore da usare per le tipologie esami della clinica Heaven Hospital.</p>
+				<p>
+					<a class="btn btn-default" href='<c:url value="/faces/newIndicatore.jsp" />' role="button">Inserisci nuovo Indicatore
+						&raquo;</a>
+				</p>
 			</div>
 			<div class="col-md-4">
+			<h2>Consulta Esami di un Medico</h2>
+				<p>Visualizza l'elenco degli esami effettuati da un medico.</p>
+				<p>
+					<a class="btn btn-default" href='<c:url value="/faces/esamiMedico.jsp" />' role="button">Elenco Esami di un medico
+						&raquo;</a>
+				</p>
 			</div>
 		</div>		
 		

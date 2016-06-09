@@ -70,6 +70,10 @@ public class Amministratore {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public boolean checkPassword(String password){
+		return this.password.equals(password);
+	}
 
 	//metodi di supporto principali
 	@Override

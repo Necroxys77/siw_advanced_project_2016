@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Inserimento Tipologia Esame</title>
+<title>Inserimento Esame</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
 		<div class="container">
-		<h1>Inserimento nuova Tipologia Esame</h1>
+		<h1>Inserimento nuovo Esame</h1>
 		<br>
 		<hr>
 		<br>
@@ -70,41 +70,48 @@
 		<f:view>
 		<h:form>
 			<fieldset class="form-group">
-				<label for="nome">Nome: </label> <h:inputText value="#{tipologiaEsameController.nome}" 
+				<label for="dataDiEsecuzione">Data Esame: </label> <h:inputText value="#{esameController.dataDiEsecuzione}" 
                     								 styleClass="form-control"
                     								 required="true"
-                   									requiredMessage="Il nome e' obbligatorio!"
-                     								id="nome"/> <h:message for="nome" />
+                   									requiredMessage="La data dell'esame e' obbligatoria"
+                     								id="dataDiEsecuzione">
+                     										<f:convertDateTime pattern="dd-MM-yyyy"/>
+                     								</h:inputText>
+                     								 <h:message for="dataDiPrenotazione" />
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="descrizione">Descrizione: </label> <h:inputTextarea value="#{tipologiaEsameController.descrizione}" 
-                    								 	styleClass="form-control"
-                    								 	required="false"
-                    								 	cols="20"
-                    								 	rows="5"
-                     									id="descrizione"> 
-                     									<f:validateLength maximum="2000"/>
-                     									</h:inputTextarea>
-                     									<h:message for="descrizione" />
+				<label for="idmedico">Medico: </label><h:selectOneMenu value="#{esameController.idmedico}">
+														<c:forEach var="medico" items="#{medicoController.medici}">
+															<f:selectItem itemValue="#{medico.id}" itemLabel="#{medico.nome} #{medico.cognome}" />
+														</c:forEach>
+													</h:selectOneMenu>
+			<br />
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="costo">Costo(&euro;): </label> <h:inputText value="#{tipologiaEsameController.costo}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="Il costo e' obbligatorio!"
-                   									converterMessage="Il costo deve essere un numero!"
-                     								id="costo"/> <h:message for="costo" />
+				<label for="idtipologia">Tipologia: </label><h:selectOneMenu value="#{esameController.idtipologia}">
+														<c:forEach var="tipologia" items="#{tipologiaEsameController.tipologieEsame}">
+															<f:selectItem itemValue="#{tipologia.id}" itemLabel="#{tipologia.nome}" />
+														</c:forEach>
+													</h:selectOneMenu>
+			<br />
 			</fieldset>
-
+			<fieldset class="form-group">
+				<label for="idpaziente">Paziente: </label><h:selectOneMenu value="#{esameController.idpaziente}">
+														<c:forEach var="paziente" items="#{pazienteController.pazienti}">
+															<f:selectItem itemValue="#{paziente.id}" itemLabel="#{paziente.nome} #{paziente.cognome}" />
+														</c:forEach>
+													</h:selectOneMenu>
+			<br />
+			</fieldset>
 			
 			
 			
 			
 			<div>
-				<h:commandButton value="Inserisci"  action="#{tipologiaEsameController.createTipologiaEsame}"/>
+				<h:commandButton value="Inserisci"  action="#{esameController.createEsame}"/>
 			</div>
 			<br> 
-			<div> Non vuoi inserire una nuova <i>Tipologia Esame</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
+			<div> Non vuoi inserire un nuovo <i>Esame</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
 			</div>
 			
 		</h:form>

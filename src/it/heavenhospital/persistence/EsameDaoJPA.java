@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 import it.heavenhospital.model.Esame;
 import it.heavenhospital.model.Indicatore;
 
 public class EsameDaoJPA implements EsameDao {
 	private EntityManager em;
-	private EntityTransaction tx;
 
 	public EsameDaoJPA(EntityManager em) {
 		this.em = em;
@@ -19,26 +19,27 @@ public class EsameDaoJPA implements EsameDao {
 
 	@Override
 	public void save(Esame esame) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.persist(esame);
-		tx.commit();
 	}
 
 	@Override
 	public void delete(Esame esame) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.remove(esame);
-		tx.commit();
 	}
 
 	@Override
 	public void update(Esame esame) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.merge(esame);
-		tx.commit();
+	}
+	
+	public List<Esame> findAllByMedicoId(Long medicoId){
+		List<Esame> esami = null;
+		Query query = em.createQuery("SELECT e FROM Esame e WHERE e.medico.id= :medicoId");
+		try{
+			query.setParameter("medicoId", medicoId);
+			esami = query.getResultList();
+		} catch(NoResultException e){}
+		return esami;
 	}
 
 	@Override

@@ -11,4 +11,5 @@ public interface IndicatoreDao {
 	public void update(Indicatore indicatore); //Update
 	public List<Indicatore> findAll(); 
 	public Indicatore findByPrimaryKey(Long id); //Retrieve
+	public Indicatore findByNome(String nome);
 }

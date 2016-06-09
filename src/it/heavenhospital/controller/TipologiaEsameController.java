@@ -1,13 +1,17 @@
 package it.heavenhospital.controller;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 import it.heavenhospital.model.AmministratoreFacade;
+import it.heavenhospital.model.Indicatore;
+import it.heavenhospital.model.Prerequisito;
 import it.heavenhospital.model.TipologiaEsame;
 
 @ManagedBean
@@ -20,9 +24,18 @@ public class TipologiaEsameController {
 	private Integer costo;
 	private TipologiaEsame tipologiaEsame;
 	private List<TipologiaEsame> tipologieEsame;
+	@ManagedProperty(value="#{param.idindicatore}") // ???
+	private Long idindicatore; // ???
+	private Indicatore indicatore; // ???
+	private List<Indicatore> indicatori; // ???
 	
 	@EJB
 	private AmministratoreFacade amministratoreFacade;
+	
+	@PostConstruct
+	public void elencoTipologie(){
+		this.tipologieEsame = amministratoreFacade.getAllTipologieEsame();
+	}
 	
 	public String createTipologiaEsame(){
 		String nextPage = "successNewTipologiaEsame";
@@ -99,6 +112,28 @@ public class TipologiaEsameController {
 	
 	public void setTipologieEsame(List<TipologiaEsame> tipologieEsame) {
 		this.tipologieEsame = tipologieEsame;
+	}
+	
+	public Long getIdindicatore() {
+		return idindicatore;
+	}
+	public Indicatore getIndicatore() {
+		return indicatore;
+	}
+	public List<Indicatore> getIndicatori() {
+		return indicatori;
+	}
+	
+	public void setIdindicatore(Long idindicatore) {
+		this.idindicatore = idindicatore;
+	}
+	
+	public void setIndicatore(Indicatore indicatore) {
+		this.indicatore = indicatore;
+	}
+	
+	public void setIndicatori(List<Indicatore> indicatori) {
+		this.indicatori = indicatori;
 	}
 	
 }

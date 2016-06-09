@@ -2,6 +2,8 @@ package it.heavenhospital.model;
 
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class TipologiaEsame {
@@ -31,9 +34,17 @@ public class TipologiaEsame {
 	@JoinTable(name="tipologiaesame_indicatore", joinColumns=@JoinColumn(name="tipologiaesame_id"), inverseJoinColumns=@JoinColumn(name="indicatore_id"))  
 	//metto un Set perché voglio essere sicuro che non esistono doppi indicatori E in modo tale da creare una chiave composita nel database
 	private Set<Indicatore> indicatori;
+	//@OneToMany(cascade={CascadeType.PERSIST})
+	//private List<Indicatore> indicatori;    //List o Set?
+	
 	@ManyToMany(fetch = FetchType.EAGER,cascade={CascadeType.PERSIST})
 	@JoinTable(name="tipologiaesame_prerequisito", joinColumns=@JoinColumn(name="tipologiaesame_prerequisito"), inverseJoinColumns=@JoinColumn(name="prerequisito_nome"))
 	private Set<Prerequisito> prerequisiti;
+	//@OneToMany(fetch = FetchType.EAGER,cascade={CascadeType.PERSIST})
+	//@JoinColumn(name="tipologiaesame_id")
+	//private List<Prerequisito> prerequisiti;
+	
+	
 	
 	public TipologiaEsame() {
 		this.indicatori = new HashSet<>();
@@ -58,7 +69,7 @@ public class TipologiaEsame {
 	}
 	
 	public Set<Indicatore> getIndicatori() {
-		return this.indicatori;
+		return indicatori;
 	}
 	
 	public void addIndicatore(Indicatore indicatore){
@@ -103,6 +114,13 @@ public class TipologiaEsame {
 	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public void setIndicatori(Set<Indicatore> indicatori) {
+		this.indicatori = indicatori;
+	}
+	public void setPrerequisiti(Set<Prerequisito> prerequisiti) {
+		this.prerequisiti = prerequisiti;
 	}
 	
 	//metodi equals e hashcode

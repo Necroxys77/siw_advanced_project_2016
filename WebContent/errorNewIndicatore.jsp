@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Inserimento Tipologia Esame</title>
+<title>Riepilogo Indicatore</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -38,9 +38,11 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a  class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a
-					class="navbar-brand" href='<c:url value="/faces/admin-home.jsp" />'>Sezione Amministratore</a> <a
-					class="navbar-brand" href="#">Sezione Paziente</a> 
+				<a class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a>
+				<a class="navbar-brand"
+					href='<c:url value="/faces/admin-home.jsp" />'>Sezione
+					Amministratore</a> <a class="navbar-brand" href="#">Sezione
+					Paziente</a> 
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right">
@@ -59,55 +61,39 @@
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
-		<div class="container">
-		<h1>Inserimento nuova Tipologia Esame</h1>
-		<br>
-		<hr>
-		<br>
-	
-	
-		<!--  Inizio campi per la tipologia -->
-		<f:view>
-		<h:form>
-			<fieldset class="form-group">
-				<label for="nome">Nome: </label> <h:inputText value="#{tipologiaEsameController.nome}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="Il nome e' obbligatorio!"
-                     								id="nome"/> <h:message for="nome" />
-			</fieldset>
-			<fieldset class="form-group">
-				<label for="descrizione">Descrizione: </label> <h:inputTextarea value="#{tipologiaEsameController.descrizione}" 
-                    								 	styleClass="form-control"
-                    								 	required="false"
-                    								 	cols="20"
-                    								 	rows="5"
-                     									id="descrizione"> 
-                     									<f:validateLength maximum="2000"/>
-                     									</h:inputTextarea>
-                     									<h:message for="descrizione" />
-			</fieldset>
-			<fieldset class="form-group">
-				<label for="costo">Costo(&euro;): </label> <h:inputText value="#{tipologiaEsameController.costo}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="Il costo e' obbligatorio!"
-                   									converterMessage="Il costo deve essere un numero!"
-                     								id="costo"/> <h:message for="costo" />
-			</fieldset>
+	<div class="container">
 
+
+		<f:view>
+	
+			<h1>Impossibile inserire il nuovo Indicatore.</h1>
+			<br>
+			<h2>Nome gia' presente.</h2>
+			<hr>
+			<br>
 			
+			<h:form>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="danger"> <!-- Volevo inserire una ricerca per nome per trovare il dettaglio dell'esame con lo stesso nome, ma non va -->
+						<td><span style="text-decoration: line-through;">${indicatoreController.indicatore.nome}</span></td>
+					</tr>
+				</tbody>
+			</table>
+			</h:form>
 			
-			
-			
+			<br>
+			<br>
 			<div>
-				<h:commandButton value="Inserisci"  action="#{tipologiaEsameController.createTipologiaEsame}"/>
+				<a href='<c:url value="/faces/newIndicatore.jsp" />'>Torna
+					ad inserire il nuovo <i>Indicatore</i>
+				</a>.
 			</div>
-			<br> 
-			<div> Non vuoi inserire una nuova <i>Tipologia Esame</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
-			</div>
-			
-		</h:form>
 		</f:view>
 
 

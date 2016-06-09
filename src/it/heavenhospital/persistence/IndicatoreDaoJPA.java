@@ -3,13 +3,13 @@ package it.heavenhospital.persistence;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import it.heavenhospital.model.Indicatore;
+import it.heavenhospital.model.TipologiaEsame;
 
 public class IndicatoreDaoJPA implements IndicatoreDao {
 	private EntityManager em;
-	private EntityTransaction tx;
 	
 	public IndicatoreDaoJPA(EntityManager em) {
 		this.em = em;
@@ -17,26 +17,17 @@ public class IndicatoreDaoJPA implements IndicatoreDao {
 		
 	@Override
 	public void save(Indicatore indicatore) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.persist(indicatore);
-		tx.commit();
 	}
 
 	@Override
 	public void delete(Indicatore indicatore) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.remove(indicatore);
-		tx.commit();
 	}
 
 	@Override
 	public void update(Indicatore indicatore) {
-		tx = em.getTransaction();
-		tx.begin();
 		em.merge(indicatore);
-		tx.commit();
 	}
 
 	@Override
@@ -48,6 +39,13 @@ public class IndicatoreDaoJPA implements IndicatoreDao {
 	@Override
 	public Indicatore findByPrimaryKey(Long id) {
 		return em.find(Indicatore.class, id);
+	}
+	
+	@Override
+	public Indicatore findByNome(String nome){
+		Query query = em.createQuery("SELECT i FROM Indicatore i WHERE i.nome=?");
+		query.setParameter(1, nome);
+		return (Indicatore) query.getSingleResult();
 	}
 
 }

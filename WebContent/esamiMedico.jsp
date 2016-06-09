@@ -60,7 +60,7 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
 		<div class="container">
-		<h1>Inserimento nuova Tipologia Esame</h1>
+		<h1>Consulta Esami effettuati da un Medico</h1>
 		<br>
 		<hr>
 		<br>
@@ -70,41 +70,21 @@
 		<f:view>
 		<h:form>
 			<fieldset class="form-group">
-				<label for="nome">Nome: </label> <h:inputText value="#{tipologiaEsameController.nome}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="Il nome e' obbligatorio!"
-                     								id="nome"/> <h:message for="nome" />
+				<label for="idmedico">Medico: </label><h:selectOneMenu value="#{esameController.idmedico}">
+														<c:forEach var="medico" items="#{medicoController.medici}">
+															<f:selectItem itemValue="#{medico.id}" itemLabel="#{medico.nome} #{medico.cognome}" />
+														</c:forEach>
+													</h:selectOneMenu>
+			<br />
 			</fieldset>
-			<fieldset class="form-group">
-				<label for="descrizione">Descrizione: </label> <h:inputTextarea value="#{tipologiaEsameController.descrizione}" 
-                    								 	styleClass="form-control"
-                    								 	required="false"
-                    								 	cols="20"
-                    								 	rows="5"
-                     									id="descrizione"> 
-                     									<f:validateLength maximum="2000"/>
-                     									</h:inputTextarea>
-                     									<h:message for="descrizione" />
-			</fieldset>
-			<fieldset class="form-group">
-				<label for="costo">Costo(&euro;): </label> <h:inputText value="#{tipologiaEsameController.costo}" 
-                    								 styleClass="form-control"
-                    								 required="true"
-                   									requiredMessage="Il costo e' obbligatorio!"
-                   									converterMessage="Il costo deve essere un numero!"
-                     								id="costo"/> <h:message for="costo" />
-			</fieldset>
-
-			
 			
 			
 			
 			<div>
-				<h:commandButton value="Inserisci"  action="#{tipologiaEsameController.createTipologiaEsame}"/>
+				<h:commandButton value="Visualizza esami"  action="#{esameController.findEsamiPerMedico}"/>
 			</div>
 			<br> 
-			<div> Non vuoi inserire una nuova <i>Tipologia Esame</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
+			<div> Non vuoi cercare gli esami effettuati da un <i>Medico</i>? <a href='<c:url value="/faces/admin-home.jsp" />'>Torna indietro</a>!
 			</div>
 			
 		</h:form>

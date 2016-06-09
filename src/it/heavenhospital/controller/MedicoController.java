@@ -2,6 +2,7 @@ package it.heavenhospital.controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
@@ -24,6 +25,12 @@ public class MedicoController {
 	
 	@EJB
 	private AmministratoreFacade amministratoreFacade;
+	
+	@PostConstruct
+	public void elencoMedici(){
+		this.medici = this.amministratoreFacade.getAllMedici();
+	}
+	
 	
 	public String createMedico(){
 		String nextPage = "successNewMedico";

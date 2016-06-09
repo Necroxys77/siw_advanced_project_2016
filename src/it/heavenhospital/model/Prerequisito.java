@@ -2,16 +2,17 @@ package it.heavenhospital.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name="allPrerequisiti",query="SELECT p FROM Prerequisito p")
 public class Prerequisito {
-	//@Id  --> Potrebbe non servire un id, uso direttamente il nome
-	//@GeneratedValue(strategy=GenerationType.AUTO)
-	//private Long id;
-	@Id
+	@Id  
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	@Column(unique=true,nullable=false)
 	private String nome;
 	@Column(nullable=false,length=2000)
@@ -26,11 +27,10 @@ public class Prerequisito {
 	
 	//metodi getters e setters
 	
-	/*
+	
 	public Long getId(){
 		return this.id;
 	}
-	*/
 	
 	public String getDescrizione() {
 		return descrizione;
@@ -64,7 +64,7 @@ public class Prerequisito {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("Prerequisito"); 
-		//sb.append("{id='").append(id); 
+		sb.append("{id='").append(id); 
 		sb.append(", nome='").append(nome);
 		sb.append(", descrizione='").append(descrizione);
 		sb.append("}\n");

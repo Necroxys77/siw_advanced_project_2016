@@ -2,6 +2,7 @@ package it.heavenhospital.model;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,6 +46,16 @@ public class Esame {
 	private Map<Indicatore,String> risultati;
 
 	public Esame() {
+		this.risultati = new HashMap<>();
+	}
+	
+	
+	public Esame(Date dataDiPrenotazione, Date dataDiEsecuzione, Paziente paziente, TipologiaEsame tipologiaEsame, Medico medico){
+		this.dataDiPrenotazione= dataDiPrenotazione;
+		this.dataDiEsecuzione = dataDiEsecuzione;
+		this.paziente = paziente;
+		this.tipologiaEsame = tipologiaEsame;
+		this.medico = medico;
 		this.risultati = new HashMap<>();
 	}
 
