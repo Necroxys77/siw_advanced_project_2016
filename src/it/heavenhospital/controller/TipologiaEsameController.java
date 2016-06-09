@@ -20,7 +20,7 @@ public class TipologiaEsameController {
 	private Integer costo;
 	private TipologiaEsame tipologiaEsame;
 	private List<TipologiaEsame> tipologieEsame;
-	
+
 	@EJB
 	private AmministratoreFacade amministratoreFacade;
 	

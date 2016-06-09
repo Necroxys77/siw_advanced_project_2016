@@ -27,33 +27,23 @@
 </head>
 
 <body>
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+					data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a	class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a 
-					class="navbar-brand" href="#">Sezione Amministratore</a> <a
-					class="navbar-brand" href="#">Sezione Paziente</a> 
+				<a class="navbar-brand">Heaven-Hospital</a>
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<form class="navbar-form navbar-right">
-					<div class="form-group">
-						<input type="text" placeholder="Email" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="password" placeholder="Password" class="form-control">
-					</div>
-					<button type="submit" class="btn btn-success">Sign in</button>
-				</form>
+			<div class="navbar-collapse collapse" aria-expanded="false"
+				style="height: 1px;">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.jsp">Hello ${amministratoreController.amministratore.email}</a></li>
+				</ul>
 			</div>
-			<!--/.navbar-collapse -->
+			<!--/.nav-collapse -->
 		</div>
 	</nav>
 
@@ -64,17 +54,22 @@
 		<div class="row">
 			<div class="col-md-4">
 				<h2>Inserimento nuova Tipologia Esame</h2>
-				<p>Inserisci una nuova Tipologia Esame nell'offerta della clinica Heaven Hospital.
-					<u>Attenzione: non potranno essere inserite Tipologie Esame che condividono lo stesso nome</u>.
-					Consulta prima l'elenco delle Tipologie Esame offerte per evitare incovenienti. </p>
 				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newTipologiaEsame.jsp" />' role="button">Inserisci nuova Tipologia
-						&raquo;</a>
+					Inserisci una nuova Tipologia Esame nell'offerta della clinica
+					Heaven Hospital. <u>Attenzione: non potranno essere inserite
+						Tipologie Esame che condividono lo stesso nome</u>. Consulta prima
+					l'elenco delle Tipologie Esame offerte per evitare incovenienti.
+				</p>
+				<p>
+					<a class="btn btn-default"
+						href='<c:url value="/faces/newTipologiaEsame.jsp" />'
+						role="button">Inserisci nuova Tipologia &raquo;</a>
 				</p>
 			</div>
 			<div class="col-md-4">
 				<h2>Inserimento nuovo Esame</h2>
-				<p>Inserisci un nuovo Esame per un paziente della clinica Heaven Hospital.</p>
+				<p>Inserisci un nuovo Esame per un paziente della clinica Heaven
+					Hospital.</p>
 				<p>
 					<a class="btn btn-default" href="#" role="button">View details
 						&raquo;</a>
@@ -82,7 +77,8 @@
 			</div>
 			<div class="col-md-4">
 				<h2>Inserimento Risultati Esame</h2>
-				<p>Inserisci i Risultati di un esame di un paziente della clinica Heaven Hospital</p>
+				<p>Inserisci i Risultati di un esame di un paziente della
+					clinica Heaven Hospital</p>
 				<p>
 					<a class="btn btn-default" href="#" role="button">View details
 						&raquo;</a>
@@ -92,34 +88,39 @@
 		<hr>
 		<!-- Secondo gruppo di colonne -->
 		<f:view>
-		<div class="row">
-			<div class="col-md-4">
-				<h2>Consulta Tipologie Esame</h2>
-				<p>Consulta l'elenco delle Tipologie Offerte dalla clinica Heaven Hospital.</p>
-				<p>
-					<h:form>
-						<h:commandButton action="#{tipologiaEsameController.listTipologieEsame}" 
-							value="Elenco Tipologie Esame" type="submit"/>
-					</h:form>
-				</p>
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Consulta Tipologie Esame</h2>
+					<p>Consulta l'elenco delle Tipologie Offerte dalla clinica
+						Heaven Hospital.</p>
+					<p>
+						<h:form>
+							<h:commandButton
+								action="#{tipologiaEsameController.listTipologieEsame}"
+								value="Elenco Tipologie Esame" type="submit" />
+						</h:form>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Inserimento nuovo Amministratore</h2>
+					<p>Inserisci un nuovo Amministratore della clinica Heaven
+						Hospital.</p>
+					<p>
+						<a class="btn btn-default"
+							href='<c:url value="/faces/newAmministratore.jsp" />'
+							role="button">Inserisci nuovo Amministratore &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Inserimento nuovo Paziente</h2>
+					<p>Inserisci un nuovo Paziente nella clinica Heaven Hospital.</p>
+					<p>
+						<a class="btn btn-default"
+							href='<c:url value="/faces/newPaziente.jsp" />' role="button">Inserisci
+							nuovo Paziente &raquo;</a>
+					</p>
+				</div>
 			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Amministratore</h2>
-				<p>Inserisci un nuovo Amministratore della clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newAmministratore.jsp" />' role="button">Inserisci nuovo Amministratore
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Inserimento nuovo Paziente</h2>
-				<p>Inserisci un nuovo Paziente nella clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newPaziente.jsp" />' role="button">Inserisci nuovo Paziente
-						&raquo;</a>
-				</p>
-			</div>
-		</div>		
 		</f:view>
 		<hr>
 		<!-- Terzo gruppo di colonne -->
@@ -128,16 +129,15 @@
 				<h2>Inserimento nuovo Medico</h2>
 				<p>Inserisci un nuovo Medico nella clinica Heaven Hospital.</p>
 				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newMedico.jsp" />' role="button">Inserisci nuovo Medico
-						&raquo;</a>
+					<a class="btn btn-default"
+						href='<c:url value="/faces/newMedico.jsp" />' role="button">Inserisci
+						nuovo Medico &raquo;</a>
 				</p>
 			</div>
-			<div class="col-md-4">
-			</div>
-			<div class="col-md-4">
-			</div>
-		</div>		
-		
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+		</div>
+
 
 		<hr>
 
@@ -164,7 +164,7 @@
 	<script>
 		window.jQuery
 				|| document
-						.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+						.write('_$tag_______________________________________________$tag_____')
 	</script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
