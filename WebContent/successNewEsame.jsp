@@ -74,7 +74,7 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Id</th>
+						<th>Id Esame</th>
 						<th>Nome Paziente</th>
 						<th>Cognome Paziente</th>
 						<th>Id Medico</th>

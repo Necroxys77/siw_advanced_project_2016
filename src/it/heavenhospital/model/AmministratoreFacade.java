@@ -2,6 +2,7 @@ package it.heavenhospital.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -29,13 +30,22 @@ public class AmministratoreFacade {
 		return tipologia;
 	}
 	
-	/*public TipologiaEsame createTipologiaEsame(String nome, String descrizione, Integer costo, List<Indicatore> indicatori){
+	public TipologiaEsame createTipologiaEsame(String nome, String descrizione, Integer costo, Set<Indicatore> indicatori){
 		TipologiaEsameDaoJPA tipologiaDao = new TipologiaEsameDaoJPA(em);
 		TipologiaEsame tipologia = new TipologiaEsame(nome, descrizione, costo);
 		tipologia.setIndicatori(indicatori);
 		tipologiaDao.save(tipologia);
 		return tipologia;
-	}*/
+	}
+	
+	public TipologiaEsame createTipologiaEsame(String nome, String descrizione, Integer costo, Set<Indicatore> indicatori, Set<Prerequisito> prerequisiti){
+		TipologiaEsameDaoJPA tipologiaDao = new TipologiaEsameDaoJPA(em);
+		TipologiaEsame tipologia = new TipologiaEsame(nome, descrizione, costo);
+		tipologia.setIndicatori(indicatori);
+		tipologia.setPrerequisiti(prerequisiti);
+		tipologiaDao.save(tipologia);
+		return tipologia;
+	}
 	
 	public TipologiaEsame getTipologiaEsame(Long id){
 		TipologiaEsameDaoJPA tipologiaDao = new TipologiaEsameDaoJPA(em);

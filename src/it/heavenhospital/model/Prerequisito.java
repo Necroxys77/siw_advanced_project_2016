@@ -13,7 +13,7 @@ public class Prerequisito {
 	@Id  
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	@Column(unique=true,nullable=false)
+	@Column(unique=false,nullable=false) ////In realtà, sarebbe meglio UNIQUE=TRUE
 	private String nome;
 	@Column(nullable=false,length=2000)
 	private String descrizione;

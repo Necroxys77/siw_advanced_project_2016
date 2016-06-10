@@ -132,12 +132,7 @@
 				</p>
 			</div>
 			<div class="col-md-4">
-				<h2>Inserimento nuovo Indicatore</h2>
-				<p>Inserisci un nuovo Indicatore da usare per le tipologie esami della clinica Heaven Hospital.</p>
-				<p>
-					<a class="btn btn-default" href='<c:url value="/faces/newIndicatore.jsp" />' role="button">Inserisci nuovo Indicatore
-						&raquo;</a>
-				</p>
+				
 			</div>
 			<div class="col-md-4">
 			<h2>Consulta Esami di un Medico</h2>

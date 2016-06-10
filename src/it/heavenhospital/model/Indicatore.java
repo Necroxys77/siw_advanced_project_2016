@@ -15,7 +15,7 @@ public class Indicatore {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	@Column(unique=true,nullable=false) //false??
+	@Column(unique=false,nullable=false) //In realtà, sarebbe meglio UNIQUE=TRUE
 	private String nome;
 	//@ManyToOne //prova 09-06-2016
 	//@JoinColumn(name="tipologiaesame_id") //prova 09-06-2016

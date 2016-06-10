@@ -94,8 +94,42 @@
                    									converterMessage="Il costo deve essere un numero!"
                      								id="costo"/> <h:message for="costo" />
 			</fieldset>
-
-			
+			<fieldset class="form-group">
+				<label for="indicatore1">Indicatore 1: </label> <h:inputText value="#{tipologiaEsameController.indicatoriArray[0]}" 
+                    								 styleClass="form-control"
+                    								 required="false"
+                   				                     id="indicatore1"/> <h:message for="indicatore1" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="indicatore2">Indicatore 2: </label> <h:inputText value="#{tipologiaEsameController.indicatoriArray[1]}" 
+                    								 styleClass="form-control"
+                    								 required="false"
+                   				                     id="indicatore2"/> <h:message for="indicatore2" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="nomeprerequisito1">Nome Prerequisito 1: </label> <h:inputText value="#{tipologiaEsameController.nomiPrerequisiti[0]}" 
+                    								 styleClass="form-control"
+                    								 required="false"
+                   				                     id="nomeprerequisito1"/> <h:message for="nomeprerequisito1" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="descrizioneprerequisito1">Descrizione Prerequisito 1: </label> <h:inputText value="#{tipologiaEsameController.descrizioniPrerequisiti[0]}" 
+                    								 styleClass="form-control"
+                    								 required="false"
+                   				                     id="descrizioneprerequisito1"/> <h:message for="descrizioneprerequisito1" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="nomeprerequisito2">Nome Prerequisito 2: </label> <h:inputText value="#{tipologiaEsameController.nomiPrerequisiti[1]}" 
+                    								 styleClass="form-control"
+                    								 required="false"
+                   				                     id="nomeprerequisito2"/> <h:message for="nomeprerequisito1" />
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="descrizioneprerequisito2">Descrizione Prerequisito 2: </label> <h:inputText value="#{tipologiaEsameController.descrizioniPrerequisiti[1]}" 
+                    								 styleClass="form-control"
+                    								 required="false"
+                   				                     id="descrizioneprerequisito2"/> <h:message for="descrizioneprerequisito2" />
+			</fieldset>		
 			
 			
 			
