@@ -7,14 +7,16 @@ import javax.ejb.EJBException;
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 import it.heavenhospital.model.Amministratore;
 import it.heavenhospital.model.AmministratoreFacade;
 
-@ManagedBean
+@ManagedBean(name="amministratoreController")
+@SessionScoped
 public class AmministratoreController {
 
-	@ManagedProperty(value="#{param.id}")
+	//@ManagedProperty(value="#{param.id}") Da levare "conflitto" con SessionScope
 	private Long id;
 	private String nome;
 	private String cognome;
@@ -24,14 +26,10 @@ public class AmministratoreController {
 	private List<Amministratore> amministratori;
 
 	private String loginErr;
-
-
-
-
 	@EJB
 	private AmministratoreFacade amministratoreFacade;
 
-	public String createAmministratore(){
+public String createAmministratore(){
 		String nextPage = "successNewAmministratore";
 		try{
 			this.amministratore = amministratoreFacade.createAmministratore(nome, cognome, email, password); 
@@ -44,12 +42,13 @@ public class AmministratoreController {
 
 
 	public String validate(){
-		try {this.amministratore=amministratoreFacade.validate(email, password);}
+		try {this.amministratore=amministratoreFacade.validate(email, password);
+		}
 		catch (EJBException e) {
 			this.loginErr = "Email o password errati";
 			return "login";
 		} 
-		return "admin";
+		return "admin-home";
 	}
 
 	//metodi setters e getters

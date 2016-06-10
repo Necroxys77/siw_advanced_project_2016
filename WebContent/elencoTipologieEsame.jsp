@@ -39,7 +39,7 @@
 				style="height: 1px;">
 				<ul class="nav navbar-nav">
 					
-					<li class="active"><a href='<c:url value="/faces/admin-home.jsp" />'>Amministratore ${amministratoreController.amministratore.email}</a>
+					<li class="active"><a href='<c:url value="/faces/admin-home.jsp" />'>Hello ${amministratoreController.amministratore.email}</a>
 
 
 				</ul>

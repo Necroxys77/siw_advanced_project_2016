@@ -31,15 +31,9 @@
 						<span class="sr-only"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand">Heaven-Hospital</a>
+				<a class="navbar-brand" href="index.jsp">Heaven-Hospital</a>
 				</div>
-				<div class="navbar-collapse collapse" aria-expanded="false"
-					style="height: 1px;">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.jsp">Home</a></li>
-						<li><a href="login.jsp">Login</a></li>
-					</ul>
-				</div>
+				
 				<!--/.nav-collapse -->
 			</div>
 		</nav>
@@ -50,7 +44,8 @@
 				<div>Nome: ${amministratoreController.amministratore.nome}</div>
 				<div>Cognome: ${amministratoreController.amministratore.cognome}</div>
 				
-				<a href="index.jsp" class="btn btn-primary">Return to Home</a>
+
+				<a href="admin-home.jsp" class="btn btn-primary">Sezione amministratore</a>
 			</div>
 		</div>
 	</f:view>

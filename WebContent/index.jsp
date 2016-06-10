@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Heaven Hospital Project 2016</title>
 
 <!-- Bootstrap core CSS -->
@@ -28,35 +28,35 @@
 <!-- personal css -->
 <link href="Static/css/personal.css" rel="stylesheet">
 </head>
-
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand">Heaven-Hospital</a>
-		</div>
-		<div class="navbar-collapse collapse" aria-expanded="false"
-			style="height: 1px;">
-			<ul class="nav navbar-nav">
-				<li class="active">
-				<a href="admin.jsp">Hello ${amministratoreController.amministratore.email}</a>
-				</li>
-				
-				<li><a href="login.jsp">Login</a></li>
-				
-			</ul>
-					</div>
-		<!--/.nav-collapse -->
-	</div>
-	</nav>
-	
-	
 
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand">Heaven-Hospital</a>
+			</div>
+			<div class="navbar-collapse collapse" aria-expanded="false"
+				style="height: 1px;">
+
+				<ul class="nav navbar-nav">
+					<c:if test="${amministratoreController.amministratore.email != null}">
+
+
+						<li class="active"><a href="admin-home.jsp">Hello
+								${amministratoreController.amministratore.email}</a></li>
+					</c:if>
+					<li><a href="login.jsp">Login Admin</a></li>
+
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
 
 	<!-- CAROUSEL -->
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -74,7 +74,8 @@
 					<div class="carousel-caption">
 						<h1 class="shadow_box">Personale altamente qualificato</h1>
 						<p class="shadow_box">Ai primi posti nell'assistenza ai
-							pazienti di tutte le eta', Heaven Hospital offre anche assistenza a domicilio</p>
+							pazienti di tutte le eta', Heaven Hospital offre anche assistenza
+							a domicilio</p>
 					</div>
 				</div>
 			</div>
@@ -84,9 +85,10 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h1 class="shadow_box">Laboratori all'avanguardia</h1>
-						<p class="shadow_box">I nuovi laboratori costruiti con le ultime tecnologie permettono
-						al nostro personale di lavorare con maggiore effecienza e attenzione, offrendo al paziente
-						il miglior servizio attualmente disponibile</p>
+						<p class="shadow_box">I nuovi laboratori costruiti con le
+							ultime tecnologie permettono al nostro personale di lavorare con
+							maggiore effecienza e attenzione, offrendo al paziente il miglior
+							servizio attualmente disponibile</p>
 					</div>
 				</div>
 			</div>
@@ -96,10 +98,11 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h1 class="shadow_box">Risultati in tempi rapidi</h1>
-						<p class="shadow_box">Grazie al gran numero del nostro personale, ogni paziente non dovra' aspettare
-						mesi prima di effettuare un esame. Inoltre, quest'ultimo verra' notificato via email una volta che i risultati dei suoi
-						esami saranno disponibili
-						</p>
+						<p class="shadow_box">Grazie al gran numero del nostro
+							personale, ogni paziente non dovra' aspettare mesi prima di
+							effettuare un esame. Inoltre, quest'ultimo verra' notificato via
+							email una volta che i risultati dei suoi esami saranno
+							disponibili</p>
 					</div>
 				</div>
 			</div>
@@ -120,34 +123,42 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Heaven Hospital</h1>
-			<p><i>Heaven Hospital</i> e' stata rinosciuta dalla regione Lazio come migliore clinica su territorio regionale, con 
-			un'elevata soddisfazione da parte dei pazienti per la nostra professionalita' e competenza. Ai primi posti tra le migliori
-			cliniche anche a livello nazionale.</p>
+			<p>
+				<i>Heaven Hospital</i> e' stata rinosciuta dalla regione Lazio come
+				migliore clinica su territorio regionale, con un'elevata
+				soddisfazione da parte dei pazienti per la nostra professionalita' e
+				competenza. Ai primi posti tra le migliori cliniche anche a livello
+				nazionale.
+			</p>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="container">
 		<f:view>
-		
-		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-md-15">
-				<h2>Consulta Tipologie Esame</h2>
-				<hr>
-				<p><i>Heaven Hospital</i> offre molte tipologie di esami: dai semplici controlli di routine a quelli piu' complessi
-				 e per tutte le tasche. Consulta la nostra offerta!</p>
-				<p>
-					<h:form>
-						<h:commandButton action="#{tipologiaEsameController.listTipologieEsame}" 
-							value="Elenco Tipologie Esame" type="submit"/>
-					</h:form>
-				</p>
+
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-15">
+					<h2>Consulta Tipologie Esame</h2>
+					<hr>
+					<p>
+						<i>Heaven Hospital</i> offre molte tipologie di esami: dai
+						semplici controlli di routine a quelli piu' complessi e per tutte
+						le tasche. Consulta la nostra offerta!
+					</p>
+					<p>
+						<h:form>
+							<h:commandButton
+								action="#{tipologiaEsameController.listTipologieEsame}"
+								value="Elenco Tipologie Esame" type="submit" />
+						</h:form>
+					</p>
+				</div>
 			</div>
-		</div>
-		
+
 		</f:view>
-		
+
 		<hr>
 
 		<footer>
@@ -185,6 +196,7 @@
 	</script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 </html>
 
