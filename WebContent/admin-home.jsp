@@ -39,8 +39,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a	class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a 
-					class="navbar-brand" href="#">Sezione Amministratore</a> <a
-					class="navbar-brand" href="#">Sezione Paziente</a> 
+					class="navbar-brand" href="#">Sezione Amministratore</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right">
@@ -84,7 +83,7 @@
 				<h2>Inserimento Risultati Esame</h2>
 				<p>Inserisci i Risultati di un esame di un paziente della clinica Heaven Hospital</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">View details
+					<a class="btn btn-default" href="#" role="button">Inserisci Risultati Esame
 						&raquo;</a>
 				</p>
 			</div>

@@ -20,8 +20,6 @@ public class AmministratoreFacade {
 	@PersistenceContext(unitName = "heavenhospital-unit")
 	private EntityManager em;
 	
-	//attribuire alla FacadeAmministratore il compito di gestire qualsiasi cosa relativa all'amministratore?
-	
 	//metodi inerenti alla gestione delle Tipologie
 	
 	public TipologiaEsame createTipologiaEsame(String nome, String descrizione, Integer costo){
@@ -124,26 +122,7 @@ public class AmministratoreFacade {
 		List<Esame> esamiMedico = esameDao.findAllByMedicoId(idmedico);
 		return esamiMedico;
 	}
-	
-	//metodi per il paziente
-	public Paziente getPaziente(Long id){
-		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
-		Paziente paziente = pazienteDao.findByPrimaryKey(id);
-		return paziente;
-	}
-	
-	public Paziente getPaziente(String email){
-		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
-		Paziente paziente = pazienteDao.findByEmail(email);
-		return paziente;
-	}
-	
-	public List<Paziente> getAllPazienti(){
-		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
-		List<Paziente> pazienti = pazienteDao.findAll();
-		return pazienti;
-	}
-	
+		
 	//metodi per l'esame
 	public Esame createEsame(Date dataDiPrenotazione, Date dataDiEsecuzione, Paziente paziente, TipologiaEsame tipologiaEsame, Medico medico){
 		EsameDaoJPA esameDao = new EsameDaoJPA(em);
@@ -151,4 +130,12 @@ public class AmministratoreFacade {
 		esameDao.save(esame);
 		return esame;
 	}
+	
+	public Paziente getPaziente(Long id){
+		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
+		Paziente paziente = pazienteDao.findByPrimaryKey(id);
+		return paziente;
+	}
+	
+
 }

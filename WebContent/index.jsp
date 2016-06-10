@@ -43,7 +43,7 @@
 				</button>
 				
 				<a  class="navbar-brand" href='<c:url value="/faces/admin-home.jsp" />'>Sezione Amministratore</a> <a
-					class="navbar-brand" href="#">Sezione Paziente</a> 
+					class="navbar-brand" href='<c:url value="/faces/paziente-home.jsp" />'>Sezione Paziente</a> 
 					
 					
 			</div>

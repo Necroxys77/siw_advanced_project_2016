@@ -9,13 +9,6 @@ import javax.persistence.PersistenceContext;
 
 import it.heavenhospital.persistence.PazienteDaoJPA;
 
-/**
- * I metodi di questa classe richiamano quelli della corrispondente classe Dao
- * in modo tale da essere inconsapevole dell'implementazione SQL per le operazioni CRUD
- * 
- * @author Matteo
- *
- */
 
 @Stateless
 public class PazienteFacade {

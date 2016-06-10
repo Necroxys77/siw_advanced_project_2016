@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Riepilogo Esame</title>
+<title>Homepage Paziente</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -38,10 +38,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a>
-				<a class="navbar-brand"
-					href='<c:url value="/faces/admin-home.jsp" />'>Sezione
-					Amministratore</a>
+				<a	class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a> <a 
+					class="navbar-brand" href='<c:url value="/faces/paziente-home.jsp" />'>Sezione Paziente</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right">
@@ -61,57 +59,33 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 
 	<div class="container">
-
-
+		<!-- Secondo gruppo di colonne -->
 		<f:view>
-			<h1>Inserimento nuovo Esame effettuato con successo!</h1>
-			<br>
-			<hr>
-			<br>
-			<h2>Dettagli</h2>
-			<br>
-
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Nome Paziente</th>
-						<th>Cognome Paziente</th>
-						<th>Id Medico</th>
-						<th>Nome Medico</th>
-						<th>Cognome Medico</th>
-						<th>Tipologia Esame</th>
-						<th>Data di Prenotazione</th>
-						<th>Data Esame</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="success">
-						<td>${esameController.esame.id}</td>
-						<td>${esameController.esame.paziente.nome}</td>
-						<td>${esameController.esame.paziente.cognome}</td>
-						<td>${esameController.esame.medico.id}</td>
-						<td>${esameController.esame.medico.nome}</td>
-						<td>${esameController.esame.medico.cognome}</td>
-						<td>${esameController.esame.tipologiaEsame.nome}</td>
-						<td>${esameController.esame.dataDiPrenotazione}</td>
-						<td>${esameController.esame.dataDiEsecuzione}</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<br>
-			<br>
-			<div>
-				<a href='<c:url value="/faces/newEsame.jsp" />'>Continua
-					ad inserire nuovi <i>Esami</i>
-				</a>. <br> <a href='<c:url value="/faces/admin-home.jsp" />'>Concludi
-					inserimento <i>Esami</i>
-				</a>.
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Consulta Tipologie Esame</h2>
+				<p>Consulta l'elenco delle Tipologie Offerte dalla clinica Heaven Hospital.</p>
+				<p>
+					<h:form>
+						<h:commandButton action="#{tipologiaEsameController.listTipologieEsame}" 
+							value="Elenco Tipologie Esame" type="submit"/>
+					</h:form>
+				</p>
 			</div>
+			<div class="col-md-4">
+				<h2>Consulta Esami</h2>
+				<p>Consulta l'elenco dei tuoi esami e richiedene il dettaglio per i risultati, se esistono.</p>
+				<p>
+					<a class="btn btn-default" href='<c:url value="#" />' role="button">Elenco Esami
+						&raquo;</a>
+				</p>
+			</div>
+			<div class="col-md-4">
+				
+			</div>
+		</div>		
 		</f:view>
-
-
+		
 		<hr>
 
 		<footer>

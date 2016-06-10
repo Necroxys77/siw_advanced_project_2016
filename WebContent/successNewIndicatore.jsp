@@ -41,8 +41,7 @@
 				<a class="navbar-brand" href='<c:url value="/faces/index.jsp" />'>Homepage</a>
 				<a class="navbar-brand"
 					href='<c:url value="/faces/admin-home.jsp" />'>Sezione
-					Amministratore</a> <a class="navbar-brand" href="#">Sezione
-					Paziente</a> 
+					Amministratore</a>  
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right">
