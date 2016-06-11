@@ -35,29 +35,27 @@
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+					data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				
-				<a  class="navbar-brand" href='<c:url value="/faces/admin-home.jsp" />'>Sezione Amministratore</a> <a
-					class="navbar-brand" href='<c:url value="/faces/paziente-home.jsp" />'>Sezione Paziente</a> 
-					
-					
+				<!--  <a class="navbar-brand">Heaven-Hospital</a> -->
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<form class="navbar-form navbar-right">
-					<div class="form-group">
-						<input type="text" placeholder="Email" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="password" placeholder="Password" class="form-control">
-					</div>
-					<button type="submit" class="btn btn-success">Sign in</button>
-				</form>
+			<div class="navbar-collapse collapse" aria-expanded="false"
+				style="height: 1px;">
+
+				<ul class="nav navbar-nav">
+					<c:if test="${amministratoreController.amministratore.email != null}">
+
+
+						<li class="active"><a href="admin-home.jsp">Benvenuto
+								${amministratoreController.amministratore.nome}</a></li>
+					</c:if>
+					<li><a href="login.jsp">Login Amministratore</a></li>
+
+				</ul>
 			</div>
+
 			<!--/.navbar-collapse -->
 		</div>
 	</nav>

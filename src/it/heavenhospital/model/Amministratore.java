@@ -33,6 +33,10 @@ public class Amministratore {
 		this.cognome = cognome;
 		this.password = password;
 	}
+	
+	public boolean checkPassword(String password){
+		return this.password.equals(password);
+	}
 
 	//setter & getters
 	public Long getId() {
@@ -71,9 +75,6 @@ public class Amministratore {
 		this.password = password;
 	}
 	
-	public boolean checkPassword(String password){
-		return this.password.equals(password);
-	}
 
 	//metodi di supporto principali
 	@Override

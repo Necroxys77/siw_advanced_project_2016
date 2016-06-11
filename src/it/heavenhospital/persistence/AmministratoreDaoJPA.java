@@ -47,4 +47,14 @@ public class AmministratoreDaoJPA implements AmministratoreDao {
 		Query query = em.createQuery("SELECT a FROM Amministratore a WHERE a.email=?");
 		return (Amministratore)query.setParameter(1,email).getSingleResult();
 	}
+	
+	@Override
+	public Amministratore findAdmin(String email, String password){
+		Query query = em.createQuery("SELECT a FROM Amministratore a WHERE a.email='"+ email + "' AND a.password='"+password+"'");
+		//Query query = em.createQuery("SELECT a FROM Amministratore a WHERE a.email=? AND a.password=?");
+		//query.setParameter(1,email);
+		//query.setParameter(2,password);
+		Amministratore amministratore = (Amministratore)query.getSingleResult();
+		return amministratore;
+	}
 }

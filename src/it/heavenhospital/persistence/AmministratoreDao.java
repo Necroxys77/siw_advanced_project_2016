@@ -12,4 +12,5 @@ public interface AmministratoreDao {
 	public List<Amministratore> findAll(); 
 	public Amministratore findByPrimaryKey(Long id); //Retrieve
 	public Amministratore findByEmail(String email); //Retrieve by email
+	public Amministratore findAdmin(String email, String password);
 }

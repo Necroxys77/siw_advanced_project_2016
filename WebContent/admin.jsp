@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Elenco Esame Medico specifico</title>
+<title>Dettaglio Login Amministratore</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -41,8 +41,7 @@
 				<div class="navbar-collapse collapse" aria-expanded="false"
 					style="height: 1px;">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="admin-home.jsp">Benvenuto
-								${amministratoreController.amministratore.nome}</a></li>
+						<li class="active"><a href="admin-home.jsp">Sezione Amministratore</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -50,40 +49,19 @@
 	</nav>
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
-
-	<div class="container">
+<div class="container">
 
 
 		<f:view>
-			<h1>Elenco Esami Medico:</h1>
+			<h1>Benvenuto ${amministratoreController.amministratore.nome} !</h1>
 			<br>
 			<hr>
 			<br>
 			
-			<h:form>
-			<table class= "table">
-				<thead>
-					<tr>
-						<th>Tipologia</th>
-						<th>Data di prenotazione</th>
-						<th>Data esame</th>
-						<th>Nome Paziente</th>
-						<th>Cognome Paziente</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="esame" items="#{esameController.esamiMedico}">
-					<tr class ="info">
-						<td>${esame.tipologiaEsame.nome}</td>
-						<td>${esame.dataDiPrenotazione}</td>
-						<td>${esame.dataDiEsecuzione}</td>
-						<td>${esame.paziente.nome}</td>
-						<td>${esame.paziente.cognome}</td>
-					</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			</h:form>
+			<p> <b>Nome</b> :   ${amministratoreController.amministratore.nome} </p>
+			<p> <b>Cognome</b> :   ${amministratoreController.amministratore.cognome} </p>
+			<p> <b>Email</b> :   ${amministratoreController.amministratore.email} </p>
+
 			<br>
 			<br>
 		</f:view>
@@ -120,4 +98,3 @@
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
-

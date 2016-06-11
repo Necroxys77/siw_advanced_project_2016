@@ -106,6 +106,18 @@ public class AmministratoreFacade {
 		return amministratore;
 	}
 	
+	public Amministratore getAmministratore(Long id){
+		AmministratoreDaoJPA amministratoreDao = new AmministratoreDaoJPA(em);
+		Amministratore amministratore = amministratoreDao.findByPrimaryKey(id);
+		return amministratore;
+	}
+	
+	public Amministratore validate (String email, String password){
+		AmministratoreDaoJPA amministratoreDao = new AmministratoreDaoJPA(em);
+		Amministratore amministratore = amministratoreDao.findAdmin(email,password);
+		return amministratore;
+	}
+	
 	//metodi inerenti alla gestione del medico
 	
 	public Medico createMedico(String nome, String cognome, String specializzazione, String password){

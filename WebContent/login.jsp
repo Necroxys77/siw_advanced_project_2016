@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Elenco Esame Medico specifico</title>
+<title>Login</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -26,9 +26,9 @@
 <link href="Static/css/personal.css" rel="stylesheet">
 </head>
 
-<body>
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+<body>		
+			 					
+		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed"
@@ -38,66 +38,46 @@
 					</button>
 					<a class="navbar-brand" href="index.jsp">Homepage</a>
 				</div>
-				<div class="navbar-collapse collapse" aria-expanded="false"
-					style="height: 1px;">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="admin-home.jsp">Benvenuto
-								${amministratoreController.amministratore.nome}</a></li>
-					</ul>
-				</div>
 				<!--/.nav-collapse -->
 		</div>
 	</nav>
-
-	<!-- Main jumbotron for a primary marketing message or call to action -->
-
+	
+	
+	
+	
+	<f:view>
 	<div class="container">
-
-
-		<f:view>
-			<h1>Elenco Esami Medico:</h1>
-			<br>
-			<hr>
-			<br>
+		<h:form>
+		<div class="col-md-6 col-md-offset-3">
+		
+			<div class="form-group has-error form-group-sm">
 			
-			<h:form>
-			<table class= "table">
-				<thead>
-					<tr>
-						<th>Tipologia</th>
-						<th>Data di prenotazione</th>
-						<th>Data esame</th>
-						<th>Nome Paziente</th>
-						<th>Cognome Paziente</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="esame" items="#{esameController.esamiMedico}">
-					<tr class ="info">
-						<td>${esame.tipologiaEsame.nome}</td>
-						<td>${esame.dataDiPrenotazione}</td>
-						<td>${esame.dataDiEsecuzione}</td>
-						<td>${esame.paziente.nome}</td>
-						<td>${esame.paziente.cognome}</td>
-					</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			</h:form>
-			<br>
-			<br>
-		</f:view>
+				<h2 class="form-signin-heading">Inserisci i dati per l'autenticazione</h2>
 
+					<label for="inputEmail" >Email: </label>
+				
+					<h:inputText styleClass="form-control" value="#{amministratoreController.email}" required="true"
+						requiredMessage="Email obbligatoria" id="email" />
+					<h:message for="email" />
+					<br>
+					<label for="inputPassword" >Password:</label>
+					
+					<h:inputSecret styleClass="form-control" value="#{amministratoreController.password}"
+						required="true" requiredMessage="Password obbligatoria"
+						id="password" />
+					<h:message for="password" />
+				 <label class="control-label" for="inputError1">${amministratoreController.loginErr}</label>
+					<h:commandButton styleClass="btn btn-lg btn-primary btn-block"
+						value="Submit" action="#{amministratoreController.validate}" />
 
-		<hr>
-
-		<footer>
-			<p>
-				&copy; 2016 Sistemi Informativi su Web, <b>Mariani Matteo</b> e <b>Marino
-					Bernardo</b>
-			</p>
-		</footer>
-	</div>
+			</div>
+			<hr>
+			</div>
+		</h:form>
+		
+		</div>
+	</f:view>
+	
 	<!-- /container -->
 
 
@@ -121,3 +101,6 @@
 </body>
 </html>
 
+	
+</body>
+</html>
