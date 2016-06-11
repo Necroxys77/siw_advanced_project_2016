@@ -4,17 +4,19 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 import it.heavenhospital.model.Paziente;
 import it.heavenhospital.model.PazienteFacade;
 
 @ManagedBean
+@SessionScoped
 public class PazienteController {
 	
-	@ManagedProperty(value="#{param.id}")
+	//@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String nome;
 	private String cognome;
@@ -22,7 +24,10 @@ public class PazienteController {
 	private String password;
 	private Paziente paziente;
 	private List<Paziente> pazienti;
-	
+	private String loginErr;
+
+
+
 	@EJB
 	private PazienteFacade pazienteFacade;
 	
@@ -44,6 +49,17 @@ public class PazienteController {
 		}
 		return nextPage;
 	}
+	
+	public String validate(){
+		try {
+			this.paziente = pazienteFacade.validate(email, password);
+		}catch (EJBException e) {
+			this.loginErr = "Email o password errati";
+			return "loginPaziente";
+		} 
+		return "paziente-home";
+	}
+
 	
 	public String listPazienti(){
 		this.pazienti = pazienteFacade.getAllPazienti();
@@ -112,4 +128,12 @@ public class PazienteController {
 		this.pazienti = pazienti;
 	}
 	
+	public String getLoginErr() {
+		return loginErr;
+	}
+
+
+	public void setLoginErr(String loginErr) {
+		this.loginErr = loginErr;
+	}
 }

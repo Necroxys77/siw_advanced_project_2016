@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import it.heavenhospital.persistence.AmministratoreDaoJPA;
 import it.heavenhospital.persistence.PazienteDaoJPA;
 
 
@@ -21,6 +22,12 @@ public class PazienteFacade {
 		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
 		Paziente paziente = new Paziente(email, password, nome, cognome);
 		pazienteDao.save(paziente);
+		return paziente;
+	}
+	
+	public Paziente validate (String email, String password){
+		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
+		Paziente paziente = pazienteDao.findPaziente(email,password);
 		return paziente;
 	}
 	

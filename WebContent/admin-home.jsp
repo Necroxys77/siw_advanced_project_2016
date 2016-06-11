@@ -126,9 +126,7 @@
 						&raquo;</a>
 				</p>
 			</div>
-			<div class="col-md-4">
-				
-			</div>
+			
 			<div class="col-md-4">
 			<h2>Consulta Esami di un Medico</h2>
 				<p>Visualizza l'elenco degli esami effettuati da un medico.</p>

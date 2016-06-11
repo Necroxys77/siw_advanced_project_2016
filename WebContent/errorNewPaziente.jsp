@@ -72,7 +72,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="danger"> <!-- Volevo inserire una ricerca per nome per trovare il dettaglio dell'esame con lo stesso nome, ma non va -->
+					<tr class="danger"> 
 						<td><span style="text-decoration: line-through;">${pazienteController.paziente.email}</span></td>
 						<td>${pazienteController.paziente.nome}</td>
 						<td>${pazienteController.paziente.cognome}</td>

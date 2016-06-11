@@ -46,8 +46,11 @@
 						<li class="active"><a href="admin-home.jsp">Benvenuto
 								${amministratoreController.amministratore.nome}</a></li>
 					</c:if>
+					<c:if test="${pazienteController.paziente.email != null}">
 					
-					<!-- QUI VA INSERITA L'ALTRA CONDIZIONE IF PER IL PAZIENTE-->
+						<li class="active"><a href="paziente-home.jsp">Benvenuto
+								${pazienteController.paziente.nome}</a></li>
+					</c:if>
 
 				</ul>
 				</div>

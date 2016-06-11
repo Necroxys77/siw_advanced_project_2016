@@ -46,7 +46,7 @@ public class AmministratoreController {
 			this.amministratore = amministratoreFacade.validate(email, password);
 		}catch (EJBException e) {
 			this.loginErr = "Email o password errati";
-			return "login";
+			return "loginAdmin";
 		} 
 		return "admin-home";
 	}

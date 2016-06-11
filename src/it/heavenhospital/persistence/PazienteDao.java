@@ -12,4 +12,5 @@ public interface PazienteDao {
 	public List<Paziente> findAll(); 
 	public Paziente findByPrimaryKey(Long id); //Retrieve
 	public Paziente findByEmail(String email); //Retrieve by email
+	public Paziente findPaziente(String email,String password); //Retrieve by email and password
 }

@@ -45,21 +45,34 @@
 				style="height: 1px;">
 
 				<ul class="nav navbar-nav">
-					<c:if test="${amministratoreController.amministratore.email != null}">
-
-
+					<c:if
+						test="${amministratoreController.amministratore.email != null}">
 						<li class="active"><a href="admin-home.jsp">Benvenuto
 								${amministratoreController.amministratore.nome}</a></li>
 					</c:if>
-					<li><a href="login.jsp">Login Amministratore</a></li>
+					<c:if
+						test="${pazienteController.paziente.email == null}">
+					<li><a href="loginAdmin.jsp">Login Amministratore</a></li>
+					</c:if>
+
+					<c:if test="${pazienteController.paziente.email != null}">
+						<li class="active"><a href="paziente-home.jsp">Benvenuto
+								${pazienteController.paziente.nome}</a></li>
+					</c:if>
+					<c:if
+						test="${amministratoreController.amministratore.email == null}">
+					<li><a href="loginPaziente.jsp">Login Paziente</a></li>
+					</c:if>
 
 				</ul>
 			</div>
 
+
+
 			<!--/.navbar-collapse -->
 		</div>
 	</nav>
-	
+
 
 
 	<!-- CAROUSEL -->
@@ -78,7 +91,8 @@
 					<div class="carousel-caption">
 						<h1 class="shadow_box">Personale altamente qualificato</h1>
 						<p class="shadow_box">Ai primi posti nell'assistenza ai
-							pazienti di tutte le eta', Heaven Hospital offre anche assistenza a domicilio</p>
+							pazienti di tutte le eta', Heaven Hospital offre anche assistenza
+							a domicilio</p>
 					</div>
 				</div>
 			</div>
@@ -88,9 +102,10 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h1 class="shadow_box">Laboratori all'avanguardia</h1>
-						<p class="shadow_box">I nuovi laboratori costruiti con le ultime tecnologie permettono
-						al nostro personale di lavorare con maggiore effecienza e attenzione, offrendo al paziente
-						il miglior servizio attualmente disponibile</p>
+						<p class="shadow_box">I nuovi laboratori costruiti con le
+							ultime tecnologie permettono al nostro personale di lavorare con
+							maggiore effecienza e attenzione, offrendo al paziente il miglior
+							servizio attualmente disponibile</p>
 					</div>
 				</div>
 			</div>
@@ -100,10 +115,11 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h1 class="shadow_box">Risultati in tempi rapidi</h1>
-						<p class="shadow_box">Grazie al gran numero del nostro personale, ogni paziente non dovra' aspettare
-						mesi prima di effettuare un esame. Inoltre, quest'ultimo verra' notificato via email una volta che i risultati dei suoi
-						esami saranno disponibili
-						</p>
+						<p class="shadow_box">Grazie al gran numero del nostro
+							personale, ogni paziente non dovra' aspettare mesi prima di
+							effettuare un esame. Inoltre, quest'ultimo verra' notificato via
+							email una volta che i risultati dei suoi esami saranno
+							disponibili</p>
 					</div>
 				</div>
 			</div>
@@ -124,34 +140,42 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Heaven Hospital</h1>
-			<p><i>Heaven Hospital</i> e' stata rinosciuta dalla regione Lazio come migliore clinica su territorio regionale, con 
-			un'elevata soddisfazione da parte dei pazienti per la nostra professionalita' e competenza. Ai primi posti tra le migliori
-			cliniche anche a livello nazionale.</p>
+			<p>
+				<i>Heaven Hospital</i> e' stata rinosciuta dalla regione Lazio come
+				migliore clinica su territorio regionale, con un'elevata
+				soddisfazione da parte dei pazienti per la nostra professionalita' e
+				competenza. Ai primi posti tra le migliori cliniche anche a livello
+				nazionale.
+			</p>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="container">
 		<f:view>
-		
-		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-md-15">
-				<h2>Consulta Tipologie Esame</h2>
-				<hr>
-				<p><i>Heaven Hospital</i> offre molte tipologie di esami: dai semplici controlli di routine a quelli piu' complessi
-				 e per tutte le tasche. Consulta la nostra offerta!</p>
-				<p>
-					<h:form>
-						<h:commandButton action="#{tipologiaEsameController.listTipologieEsame}" 
-							value="Elenco Tipologie Esame" type="submit"/>
-					</h:form>
-				</p>
+
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-15">
+					<h2>Consulta Tipologie Esame</h2>
+					<hr>
+					<p>
+						<i>Heaven Hospital</i> offre molte tipologie di esami: dai
+						semplici controlli di routine a quelli piu' complessi e per tutte
+						le tasche. Consulta la nostra offerta!
+					</p>
+					<p>
+						<h:form>
+							<h:commandButton
+								action="#{tipologiaEsameController.listTipologieEsame}"
+								value="Elenco Tipologie Esame" type="submit" />
+						</h:form>
+					</p>
+				</div>
 			</div>
-		</div>
-		
+
 		</f:view>
-		
+
 		<hr>
 
 		<footer>

@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Riepilogo Tipologia Esame</title>
+<title>Login Paziente</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -26,79 +26,58 @@
 <link href="Static/css/personal.css" rel="stylesheet">
 </head>
 
-<body>
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.jsp">Homepage</a>
-			</div>
-			<div class="navbar-collapse collapse" aria-expanded="false"
-				style="height: 1px;">
-				<ul class="nav navbar-nav">
-					<c:if
-						test="${amministratoreController.amministratore.email != null}">
-
-						<li class="active"><a href="admin-home.jsp">Benvenuto
-								${amministratoreController.amministratore.nome}</a></li>
-					</c:if>
-
-					<c:if test="${pazienteController.paziente.email != null}">
-
-						<li class="active"><a href="paziente-home.jsp">Benvenuto
-								${pazienteController.paziente.nome}</a></li>
-					</c:if>
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
+<body>		
+			 					
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.jsp">Homepage</a>
+				</div>
+				<!--/.nav-collapse -->
 		</div>
 	</nav>
-
-	<!-- Main jumbotron for a primary marketing message or call to action -->
-
+	
+	
+	
+	
+	<f:view>
 	<div class="container">
+		<h:form>
+		<div class="col-md-6 col-md-offset-3">
+		
+			<div class="form-group has-error form-group-sm">
+			
+				<h2 class="form-signin-heading">Inserisci i dati per l'autenticazione</h2>
 
+					<label for="inputEmail" >Email: </label>
+				
+					<h:inputText styleClass="form-control" value="#{pazienteController.email}" required="true"
+						requiredMessage="Email obbligatoria" id="email" />
+					<h:message for="email" />
+					<br>
+					<label for="inputPassword" >Password:</label>
+					
+					<h:inputSecret styleClass="form-control" value="#{pazienteController.password}"
+						required="true" requiredMessage="Password obbligatoria"
+						id="password" />
+					<h:message for="password" />
+				 <label class="control-label" for="inputError1">${pazienteController.loginErr}</label>
+					<h:commandButton styleClass="btn btn-lg btn-primary btn-block"
+						value="Submit" action="#{pazienteController.validate}" />
 
-		<f:view>
-			<h1>Dettaglio Tipologia Esame</h1>
-			<br>
+			</div>
 			<hr>
-			<br>
-
-			<h1>${tipologiaEsameController.tipologiaEsame.nome}</h1>
-			<br>
-
-			<p>
-				<b>Id</b>: ${tipologiaEsameController.tipologiaEsame.id}
-			</p>
-			<p>
-				<b>Costo(&euro;)</b>:
-				${tipologiaEsameController.tipologiaEsame.costo}
-			</p>
-			<p>
-				<b>Descrizione</b>:
-				${tipologiaEsameController.tipologiaEsame.descrizione}
-			</p>
-
-			<br>
-			<br>
-		</f:view>
-
-
-		<hr>
-
-		<footer>
-			<p>
-				&copy; 2016 Sistemi Informativi su Web, <b>Mariani Matteo</b> e <b>Marino
-					Bernardo</b>
-			</p>
-		</footer>
-	</div>
+			</div>
+		</h:form>
+		
+		</div>
+	</f:view>
+	
 	<!-- /container -->
 
 
@@ -122,3 +101,6 @@
 </body>
 </html>
 
+	
+</body>
+</html>

@@ -77,7 +77,7 @@
                      									<h:message for="cognome" />
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="email">Specializzazione: </label> <h:inputText value="#{medicoController.specializzazione}" 
+				<label for="specializzione">Specializzazione: </label> <h:inputText value="#{medicoController.specializzazione}" 
                     								 styleClass="form-control"
                     								 required="true"
                    									requiredMessage="La specializzazione e' obbligatoria!"

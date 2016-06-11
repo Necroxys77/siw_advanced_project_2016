@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Login</title>
+<title>Dettaglio Login Paziente</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -26,9 +26,9 @@
 <link href="Static/css/personal.css" rel="stylesheet">
 </head>
 
-<body>		
-			 					
-		<nav class="navbar navbar-inverse navbar-fixed-top">
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed"
@@ -38,46 +38,44 @@
 					</button>
 					<a class="navbar-brand" href="index.jsp">Homepage</a>
 				</div>
+				<div class="navbar-collapse collapse" aria-expanded="false"
+					style="height: 1px;">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="paziente-home.jsp">Sezione Paziente</a></li>
+					</ul>
+				</div>
 				<!--/.nav-collapse -->
 		</div>
 	</nav>
-	
-	
-	
-	
-	<f:view>
-	<div class="container">
-		<h:form>
-		<div class="col-md-6 col-md-offset-3">
-		
-			<div class="form-group has-error form-group-sm">
-			
-				<h2 class="form-signin-heading">Inserisci i dati per l'autenticazione</h2>
 
-					<label for="inputEmail" >Email: </label>
-				
-					<h:inputText styleClass="form-control" value="#{amministratoreController.email}" required="true"
-						requiredMessage="Email obbligatoria" id="email" />
-					<h:message for="email" />
-					<br>
-					<label for="inputPassword" >Password:</label>
-					
-					<h:inputSecret styleClass="form-control" value="#{amministratoreController.password}"
-						required="true" requiredMessage="Password obbligatoria"
-						id="password" />
-					<h:message for="password" />
-				 <label class="control-label" for="inputError1">${amministratoreController.loginErr}</label>
-					<h:commandButton styleClass="btn btn-lg btn-primary btn-block"
-						value="Submit" action="#{amministratoreController.validate}" />
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
 
-			</div>
+
+		<f:view>
+			<h1>Benvenuto ${pazienteController.paziente.nome} !</h1>
+			<br>
 			<hr>
-			</div>
-		</h:form>
-		
-		</div>
-	</f:view>
-	
+			<br>
+			
+			<p> <b>Nome</b> :   ${pazienteController.paziente.nome} </p>
+			<p> <b>Cognome</b> :   ${pazienteController.paziente.cognome} </p>
+			<p> <b>Email</b> :   ${pazienteController.paziente.email} </p>
+
+			<br>
+			<br>
+		</f:view>
+
+
+		<hr>
+
+		<footer>
+			<p>
+				&copy; 2016 Sistemi Informativi su Web, <b>Mariani Matteo</b> e <b>Marino
+					Bernardo</b>
+			</p>
+		</footer>
+	</div>
 	<!-- /container -->
 
 
@@ -98,9 +96,5 @@
 	</script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
-
-	
 </body>
 </html>

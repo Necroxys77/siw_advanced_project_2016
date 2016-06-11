@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import it.heavenhospital.model.Amministratore;
 import it.heavenhospital.model.Paziente;
 
 public class PazienteDaoJPA implements PazienteDao {
@@ -50,6 +51,16 @@ public class PazienteDaoJPA implements PazienteDao {
 	public Paziente findByEmail(String email) {
 		Query query = em.createQuery("SELECT p FROM Paziente p WHERE p.email=?");
 		return (Paziente)query.setParameter(1, email).getSingleResult();
+	}
+
+	@Override
+	public Paziente findPaziente(String email, String password) {
+		Query query = em.createQuery("SELECT p FROM Paziente p WHERE p.email='"+ email + "' AND p.password='"+password+"'");
+		//Query query = em.createQuery("SELECT p FROM Paziente p WHERE p.email=? AND p.password=?");
+		//query.setParameter(1,email);
+		//query.setParameter(2,password);
+		Paziente paziente = (Paziente)query.getSingleResult();
+		return paziente;	
 	}
 }
 
