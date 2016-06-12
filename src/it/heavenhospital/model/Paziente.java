@@ -20,7 +20,6 @@ public class Paziente{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@Column(nullable=false, name="password")
-	//@ColumnTransformer( write="EncryptByPassPhrase('12',?)", read="DECRYPTBYPASSPHRASE ('12',password)" )
 	private String password;
 	@Column(nullable=false)
 	private String nome;
@@ -30,8 +29,8 @@ public class Paziente{
 	private String email;
 	@OneToMany(mappedBy="paziente",cascade={CascadeType.REMOVE})
 	@OrderBy("dataDiEsecuzione ASC")
-	private List<Esame> esami; //inserire una mappa? Intanto facciamo un progetto che sia funzionale, poi vedremo. Può essere che la ricerca la fa direttamente il database
-
+	private List<Esame> esami; 
+	
 	public Paziente(){
 		this.esami = new ArrayList<>();
 	}

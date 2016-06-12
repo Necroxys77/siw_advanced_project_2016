@@ -4,17 +4,19 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 import it.heavenhospital.model.Paziente;
 import it.heavenhospital.model.PazienteFacade;
 
 @ManagedBean
+@SessionScoped
 public class PazienteController {
 	
-	@ManagedProperty(value="#{param.id}")
+	//@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String nome;
 	private String cognome;
@@ -22,6 +24,8 @@ public class PazienteController {
 	private String password;
 	private Paziente paziente;
 	private List<Paziente> pazienti;
+	private String loginErr;
+	
 	
 	@EJB
 	private PazienteFacade pazienteFacade;
@@ -32,18 +36,27 @@ public class PazienteController {
 		this.pazienti = this.pazienteFacade.getAllPazienti();
 	}
 	
-	
-	//i metodi del controller hanno come risultato il nome della prossima pagina da visualizzare
 	public String createPaziente(){
 		String nextPage = "successNewPaziente";
 		try{
 			this.paziente = pazienteFacade.createPaziente(nome, cognome, email, password);
-		} catch (EJBTransactionRolledbackException e){ // catturo l'eccezione sollevata in cui il DBMS ha già un paziente con la stessa email
+		} catch (EJBTransactionRolledbackException e){ 
 			nextPage = "errorNewPaziente";
-			this.paziente = new Paziente(email, password, nome, cognome); //creo ugualmente il paziente in modo tale da richiamarne i dati nella pagina di errore
+			this.paziente = new Paziente(email, password, nome, cognome); 
 		}
 		return nextPage;
 	}
+	
+	public String validate(){
+		try {
+			this.paziente = pazienteFacade.validate(email, password);
+		}catch (EJBException e) {
+			this.loginErr = "Email o password errati";
+			return "loginPaziente";
+		} 
+		return "paziente-home";
+	}
+	
 	
 	public String listPazienti(){
 		this.pazienti = pazienteFacade.getAllPazienti();
@@ -55,7 +68,7 @@ public class PazienteController {
 		return "paziente";
 	}
 	
-	//metodi getter e setter necessari al controller
+	//metodi getter e setter 
 	public Long getId() {
 		return id;
 	}
@@ -110,6 +123,14 @@ public class PazienteController {
 	
 	public void setPazienti(List<Paziente> pazienti) {
 		this.pazienti = pazienti;
+	}
+	
+	public String getLoginErr() {
+		return loginErr;
+	}
+	
+	public void setLoginErr(String loginErr) {
+		this.loginErr = loginErr;
 	}
 	
 }

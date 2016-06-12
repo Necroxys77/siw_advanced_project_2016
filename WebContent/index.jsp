@@ -46,12 +46,27 @@
 
 				<ul class="nav navbar-nav">
 					<c:if test="${amministratoreController.amministratore.email != null}">
-
-
 						<li class="active"><a href="admin-home.jsp">Benvenuto
 								${amministratoreController.amministratore.nome}</a></li>
 					</c:if>
-					<li><a href="login.jsp">Login Amministratore</a></li>
+					
+					<c:if
+						test="${pazienteController.paziente.email == null}">
+					<li><a href="loginAdmin.jsp">Login Amministratore</a></li>
+					</c:if>
+
+			
+					<c:if test="${pazienteController.paziente.email != null}">
+						<li class="active"><a href="paziente-home.jsp">Benvenuto
+								${pazienteController.paziente.nome}</a></li>
+					</c:if>
+									
+					<c:if
+						test="${amministratoreController.amministratore.email == null}">
+					<li><a href="loginPaziente.jsp">Login Paziente</a></li>
+					</c:if>
+
+
 
 				</ul>
 			</div>

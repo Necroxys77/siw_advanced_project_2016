@@ -36,9 +36,9 @@ public class MedicoController {
 		String nextPage = "successNewMedico";
 		try{
 			this.medico = amministratoreFacade.createMedico(nome, cognome, specializzazione, password); 
-		} catch (EJBTransactionRolledbackException e){ // catturo l'eccezione sollevata in cui il DBMS ha già un paziente con la stessa email
+		} catch (EJBTransactionRolledbackException e){ 
 			nextPage = "errorNewMedico";
-			this.medico = new Medico(password, nome, cognome, specializzazione); //creo ugualmente il medico in modo tale da richiamarne i dati nella pagina di errore
+			this.medico = new Medico(password, nome, cognome, specializzazione); 
 		}
 		return nextPage;
 	}

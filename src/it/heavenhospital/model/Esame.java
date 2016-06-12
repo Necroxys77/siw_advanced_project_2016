@@ -2,7 +2,6 @@ package it.heavenhospital.model;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -31,8 +30,6 @@ public class Esame {
 	private Date dataDiPrenotazione;
 	@Temporal (TemporalType.DATE)
 	private Date dataDiEsecuzione;
-	//@Column(unique=true)
-	//private String codice;
 	@ManyToOne
 	private Paziente paziente;
 	@ManyToOne(fetch = FetchType.LAZY)

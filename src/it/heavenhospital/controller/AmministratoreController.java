@@ -6,7 +6,6 @@ import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import it.heavenhospital.model.Amministratore;
@@ -16,7 +15,7 @@ import it.heavenhospital.model.AmministratoreFacade;
 @SessionScoped
 public class AmministratoreController {
 
-	//@ManagedProperty(value="#{param.id}") conflitto con SessionScoped?
+	//@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String nome;
 	private String cognome;
@@ -33,9 +32,9 @@ public class AmministratoreController {
 		String nextPage = "successNewAmministratore";
 		try{
 			this.amministratore = amministratoreFacade.createAmministratore(nome, cognome, email, password); 
-		} catch (EJBTransactionRolledbackException e){ // catturo l'eccezione sollevata in cui il DBMS ha già un paziente con la stessa email
+		} catch (EJBTransactionRolledbackException e){ 
 			nextPage = "errorNewAmministratore";
-			this.amministratore = new Amministratore(email, password, nome, cognome); //creo ugualmente il paziente in modo tale da richiamarne i dati nella pagina di errore
+			this.amministratore = new Amministratore(email, password, nome, cognome);
 		}
 		return nextPage;
 	}
@@ -46,7 +45,7 @@ public class AmministratoreController {
 			this.amministratore = amministratoreFacade.validate(email, password);
 		}catch (EJBException e) {
 			this.loginErr = "Email o password errati";
-			return "login";
+			return "loginAdmin";
 		} 
 		return "admin-home";
 	}

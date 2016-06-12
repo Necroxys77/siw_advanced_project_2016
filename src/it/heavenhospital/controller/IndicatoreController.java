@@ -23,8 +23,7 @@ public class IndicatoreController {
 	@EJB
 	private AmministratoreFacade amministratoreFacade;
 
-	// questo metodo viene invocato appena si chiama l'indicatore Controller. In questo modo, carico direttamente tutti gli indicatori dal 
-	// database per interrogarli
+
 	@PostConstruct
 	public void elencoIndicatori(){
 		this.indicatori = amministratoreFacade.getAllIndicatori();

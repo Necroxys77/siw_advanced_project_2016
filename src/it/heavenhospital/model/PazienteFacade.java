@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
 import it.heavenhospital.persistence.PazienteDaoJPA;
 
 
@@ -16,7 +17,7 @@ public class PazienteFacade {
 	@PersistenceContext(unitName = "heavenhospital-unit")
 	private EntityManager em;
 	
-	// chiedo alla classe PazienteDao di occuparsi dell'invocazione dei metodi dell'em e di eventuali istruzioni SQL, creando un livello d'indirezione
+	
 	public Paziente createPaziente(String nome, String cognome, String email, String password){
 		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
 		Paziente paziente = new Paziente(email, password, nome, cognome);
@@ -53,6 +54,12 @@ public class PazienteFacade {
 		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
 		List<Paziente> pazienti = pazienteDao.findAll();
 		return pazienti;
+	}
+	
+	public Paziente validate (String email, String password){
+		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
+		Paziente paziente = pazienteDao.findPaziente(email,password);
+		return paziente;
 	}
 	
 }

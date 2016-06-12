@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Riepilogo Tipologia Esame</title>
+<title>Dettaglio Login Paziente</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Static/css/bootstrap.min.css" rel="stylesheet">
@@ -41,40 +41,26 @@
 				<div class="navbar-collapse collapse" aria-expanded="false"
 					style="height: 1px;">
 					<ul class="nav navbar-nav">
-					<c:if test="${amministratoreController.amministratore.email != null}">
-					
-						<li class="active"><a href="admin-home.jsp">Benvenuto
-								${amministratoreController.amministratore.nome}</a></li>
-					</c:if>
-		
-					<c:if test="${pazienteController.paziente.email != null}">
-					
-						<li class="active"><a href="paziente-home.jsp">Benvenuto
-								${pazienteController.paziente.nome}</a></li>
-					</c:if>
-				</ul>
+						<li class="active"><a href="paziente-home.jsp">Sezione Paziente</a></li>
+					</ul>
 				</div>
 				<!--/.nav-collapse -->
 		</div>
 	</nav>
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
-
-	<div class="container">
+<div class="container">
 
 
 		<f:view>
-			<h1>Dettaglio Tipologia Esame</h1>
+			<h1>Benvenuto ${pazienteController.paziente.nome} !</h1>
 			<br>
 			<hr>
 			<br>
 			
-			<h1> ${tipologiaEsameController.tipologiaEsame.nome} </h1>
-			<br>
-			
-			<p> <b>Id</b>:   ${tipologiaEsameController.tipologiaEsame.id} </p>
-			<p> <b>Costo(&euro;)</b>:   ${tipologiaEsameController.tipologiaEsame.costo} </p>
-			<p> <b>Descrizione</b>:   ${tipologiaEsameController.tipologiaEsame.descrizione} </p>
+			<p> <b>Nome</b> :   ${pazienteController.paziente.nome} </p>
+			<p> <b>Cognome</b> :   ${pazienteController.paziente.cognome} </p>
+			<p> <b>Email</b> :   ${pazienteController.paziente.email} </p>
 
 			<br>
 			<br>
@@ -109,7 +95,6 @@
 						.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
 	</script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	
 </body>
 </html>
-

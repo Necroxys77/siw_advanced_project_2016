@@ -2,6 +2,7 @@ package it.heavenhospital.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -9,6 +10,7 @@ import javax.faces.bean.ManagedProperty;
 
 import it.heavenhospital.model.AmministratoreFacade;
 import it.heavenhospital.model.Esame;
+import it.heavenhospital.model.Indicatore;
 import it.heavenhospital.model.Medico;
 import it.heavenhospital.model.Paziente;
 import it.heavenhospital.model.TipologiaEsame;
@@ -32,6 +34,7 @@ public class EsameController {
 	private Esame esame;
 	private List<Esame> esami;
 	private List<Esame> esamiMedico;
+	private Set<Indicatore> indicatoriTipologiaAssociata;
 
 	@EJB
 	private AmministratoreFacade amministratoreFacade;
@@ -44,6 +47,12 @@ public class EsameController {
 		this.setPaziente(amministratoreFacade.getPaziente(idpaziente));
 		this.esame = amministratoreFacade.createEsame(dataDiPrenotazione,dataDiEsecuzione,paziente,tipologiaEsame,medico);
 		return "successNewEsame";
+	}
+	
+	public String findEsame(){
+		this.esame = amministratoreFacade.getEsame(id);
+		this.indicatoriTipologiaAssociata = this.esame.getTipologiaEsame().getIndicatori();
+		return "dettaglioEsame"; //pagina non implementata perché non facente parte dei casi d'uso scelti
 	}
 	
 	
@@ -142,5 +151,13 @@ public class EsameController {
 	
 	public void setEsamiMedico(List<Esame> esamiMedico) {
 		this.esamiMedico = esamiMedico;
+	}
+	
+	public Set<Indicatore> getIndicatoriTipologiaAssociata() {
+		return indicatoriTipologiaAssociata;
+	}
+	
+	public void setIndicatoriTipologiaAssociata(Set<Indicatore> indicatoriTipologiaAssociata) {
+		this.indicatoriTipologiaAssociata = indicatoriTipologiaAssociata;
 	}
 }

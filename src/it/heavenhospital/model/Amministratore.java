@@ -15,7 +15,6 @@ public class Amministratore {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@Column(nullable=false, name="password")
-	//@ColumnTransformer( write="EncryptByPassPhrase('12',?)", read="DECRYPTBYPASSPHRASE ('12',password)" )
 	private String password;
 	@Column(nullable=false)
 	private String nome;
@@ -24,7 +23,6 @@ public class Amministratore {
 	@Column(unique=true,nullable=false)
 	private String email;
 
-	//costruttore vuoto necessario per jpa
 	public Amministratore(){}
 
 	public Amministratore(String email, String password, String nome, String cognome){

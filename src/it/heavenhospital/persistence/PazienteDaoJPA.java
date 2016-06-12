@@ -51,5 +51,12 @@ public class PazienteDaoJPA implements PazienteDao {
 		Query query = em.createQuery("SELECT p FROM Paziente p WHERE p.email=?");
 		return (Paziente)query.setParameter(1, email).getSingleResult();
 	}
+	
+	@Override
+	public Paziente findPaziente(String email, String password){
+		Query query = em.createQuery("SELECT p FROM Paziente p WHERE p.email='"+ email + "' AND p.password='"+password+"'");
+		Paziente paziente = (Paziente)query.getSingleResult();
+		return paziente;
+	}
 }
 

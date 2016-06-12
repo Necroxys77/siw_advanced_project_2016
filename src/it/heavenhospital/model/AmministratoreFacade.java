@@ -66,6 +66,7 @@ public class AmministratoreFacade {
 	}
 	
 	//metodi inerenti alla gestione degli indicatori
+	
 	public Indicatore createIndicatore(String nome){
 		IndicatoreDaoJPA indicatoreDao = new IndicatoreDaoJPA(em);
 		Indicatore indicatore = new Indicatore(nome);
@@ -157,6 +158,12 @@ public class AmministratoreFacade {
 		PazienteDaoJPA pazienteDao = new PazienteDaoJPA(em);
 		Paziente paziente = pazienteDao.findByPrimaryKey(id);
 		return paziente;
+	}
+	
+	public Esame getEsame(Long id){
+		EsameDaoJPA esameDao = new EsameDaoJPA(em);
+		Esame esame = esameDao.findByPrimaryKey(id);
+		return esame;
 	}
 	
 

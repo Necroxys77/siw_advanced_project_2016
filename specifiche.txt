@@ -1,0 +1,25 @@
+[Progetto Avanzato - Mariani Matteo & Marino Bernardo]
+
+Implementato tutto lo strato della logica applicativa. 
+
+Casi d'uso implementati nello strato di presentazione :
+
+- UC1: Consulta Offerta
+Descrizione: L'utente non registrato può consultare l'elenco delle tipologie degli esami e richiederne i dettagli.
+
+- UC2: Crea Esame (prenotazione)
+Descrizione: L'amministratore può creare un nuovo esame per un paziente della clinica, associandolo ad un medico ed una tipologia esame già esistente.
+
+- UC4: Inserimento Tipologia Esame
+Descrizione: L'amministratore può creare una nuova tipologia d'esame inserendo indicatori e prerequisiti.
+
+- UC5: Consulta Esami effettuati da un medico
+Descrizione: L'amministratore può consultare tutti gli esami effettuati da un medico.
+
+
+PROBLEMI:
+
+- Filtri per gestire paziente e amministratore non implementati.
+- Nelle classi del modello di Indicatore e Prerequisito abbiamo dovuto mettere unique=false sul nome poichè non riuscivamo a gestire il controllo di eventuali duplicati nel database. 
+- All'inserimento di un nuovo amministratore, sia se esso è già presente del database sia se non lo è, viene effettuato il logout dell'amministratore corrente, effettuando il login con quello appena inserito.
+- All'inserimento di un nuovo paziente, sia se esso è già presente del database sia se non lo è, viene effettuato automaticamente il login con il paziente appena inserito.
